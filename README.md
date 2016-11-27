@@ -1,2 +1,6 @@
 # Sentiment-analysis-using-Business-News
-#Sentimental Analytics
+## PREPROCESSING
+
+## SENTIMENT EVALUATION
+
+
