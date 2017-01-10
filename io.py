@@ -19,3 +19,7 @@ file_name = 'livemint_data.csv'
 
 df = pd.read_csv(file_name,encoding='iso-8859-1')
 print(df.head())
+
+  ## read file with encodings
+with codecs.open(filename,'r',encoding='utf8') as f:
+    text = f.read()
