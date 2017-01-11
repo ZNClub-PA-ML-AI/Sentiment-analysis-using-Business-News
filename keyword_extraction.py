@@ -20,7 +20,7 @@ file_name = ['economictimes_data.csv','livemint_data.csv']
 #print(df.head())
 
 df = pd.read_csv(file_name[1],encoding='iso-8859-1')
-print(df.head())
+#print(df.head())
 
 #print(df['title'])
 news_list=df['title'].tolist()
@@ -48,6 +48,22 @@ df = pd.read_excel('company_keyword.xlsx', sheetname='Sheet1')
 #            count+=1
 #
 #print(count)
+
+    ## create dataframe filtered news
+
+f_news = pd.DataFrame()
+
+for index, row in df.iterrows():
+    df2 = pd.DataFrame({row.company:[]})
+    f_news = f_news.append(df2)
+
+    
+#f_news = pd.DataFrame()
+
+
+
+
+
 count=0
 for news in news_list:
     news = news.lower()
@@ -56,15 +72,20 @@ for news in news_list:
     for index, row in df.iterrows():
         #print(row.company,row.keyword)
         k = row.company
+        
         v = row.keyword
         v_list = v.split(',')
         #print(k)
         for i in v_list:
             i=i.lower()
             if re.search(i,news):
-                print("-------"+news+k)
+                print(k+"---"+news)
                 count+=1
+#                df2 = pd.DataFrame()
+#                f_news[k].append(news)
+                ## add company as column
+                
 
 print(count)           
 print(len(news_list))    
-    
+print(f_news.head())
