@@ -33,7 +33,7 @@ df4 = pd.DataFrame(columns=('date','title','intro','href'))
 for index, row in df3.iterrows():
     helper[row.company] = list(row.keyword.split(","))
 
-for index, row in df2.iterrows():
+for index, row in df1.iterrows():
     
     for key, value in helper.items():
         
@@ -43,7 +43,7 @@ for index, row in df2.iterrows():
             v = v.lower()
             
             if re.search(v,pattern):
-                print(v+"--"+pattern)
+                #print(v+"--"+pattern)
                 df5 = pd.DataFrame({'date':[row.date],
                                    'title':[row.title.lower()],
                                    'intro':[row.intro.lower()],
@@ -54,6 +54,6 @@ for index, row in df2.iterrows():
                 #print(df4.head())
 print(df4.shape)
 print(df1.shape)
-df4.to_csv('filtered_news3.csv', sep=',', encoding='utf-8')
+#df4.to_csv('filtered_news3.csv', sep=',', encoding='utf-8')
 
         
