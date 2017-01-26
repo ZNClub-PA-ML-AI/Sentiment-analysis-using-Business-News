@@ -39,10 +39,20 @@ for index, row in df1.iterrows():
         
         for v in value:
             
-            pattern = row.title.lower()
+            title_pattern = row.title.lower()
+            intro_pattern = row.intro.lower()
             v = v.lower()
             
-            if re.search(v,pattern):
+            if re.search(v,title_pattern):
+                #print(v+"--"+pattern)
+                df5 = pd.DataFrame({'date':[row.date],
+                                   'title':[row.title.lower()],
+                                   'intro':[row.intro.lower()],
+                                   'href':[row.href]
+                                   })
+                df4 = pd.concat([df4,df5])
+            
+            elif re.search(v,intro_pattern):
                 #print(v+"--"+pattern)
                 df5 = pd.DataFrame({'date':[row.date],
                                    'title':[row.title.lower()],
@@ -52,8 +62,43 @@ for index, row in df1.iterrows():
                 df4 = pd.concat([df4,df5])
                 
                 #print(df4.head())
-print(df4.shape)
-print(df1.shape)
-#df4.to_csv('filtered_news3.csv', sep=',', encoding='utf-8')
+print(df4.shape[0]*100/df1.shape[0])
+
+
+
+
+for index, row in df2.iterrows():
+    
+    for key, value in helper.items():
+        
+        for v in value:
+            
+            title_pattern = row.title.lower()
+            intro_pattern = row.intro.lower()
+            v = v.lower()
+            
+            if re.search(v,title_pattern):
+                #print(v+"--"+pattern)
+                df5 = pd.DataFrame({'date':[row.date],
+                                   'title':[row.title.lower()],
+                                   'intro':[row.intro.lower()],
+                                   'href':[row.href]
+                                   })
+                df4 = pd.concat([df4,df5])
+            
+            elif re.search(v,intro_pattern):
+                #print(v+"--"+pattern)
+                df5 = pd.DataFrame({'date':[row.date],
+                                   'title':[row.title.lower()],
+                                   'intro':[row.intro.lower()],
+                                   'href':[row.href]
+                                   })
+                df4 = pd.concat([df4,df5])
+                
+                #print(df4.head())
+print(df4.shape[0]*100/df2.shape[0])
+
+
+df4.to_csv('output_89.csv', sep=',', encoding='utf-8')
 
         
