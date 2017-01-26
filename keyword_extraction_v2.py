@@ -29,6 +29,8 @@ df2 = pd.read_csv(file_name[1],encoding='iso-8859-1')
 df3 = pd.read_excel('company_keyword.xlsx', sheetname='Sheet1')
 helper = defaultdict(list)
 df4 = pd.DataFrame(columns=('date','title','intro','href'))
+df6 = pd.DataFrame(columns=('company','href'))
+df7 = pd.DataFrame(columns=('company','href'))
 
 for index, row in df3.iterrows():
     helper[row.company] = list(row.keyword.split(","))
@@ -43,7 +45,7 @@ for index, row in df1.iterrows():
             intro_pattern = row.intro.lower()
             v = v.lower()
             
-            if re.search(v,title_pattern):
+            if re.search(v,title_pattern) or re.search(v,intro_pattern):
                 #print(v+"--"+pattern)
                 df5 = pd.DataFrame({'date':[row.date],
                                    'title':[row.title.lower()],
@@ -51,20 +53,10 @@ for index, row in df1.iterrows():
                                    'href':[row.href]
                                    })
                 df4 = pd.concat([df4,df5])
-            
-            elif re.search(v,intro_pattern):
-                #print(v+"--"+pattern)
-                df5 = pd.DataFrame({'date':[row.date],
-                                   'title':[row.title.lower()],
-                                   'intro':[row.intro.lower()],
-                                   'href':[row.href]
-                                   })
-                df4 = pd.concat([df4,df5])
-                
-                #print(df4.head())
+
 print(df4.shape[0]*100/df1.shape[0])
 
-
+df1_out = df4.shape[0]
 
 
 for index, row in df2.iterrows():
@@ -96,9 +88,13 @@ for index, row in df2.iterrows():
                 df4 = pd.concat([df4,df5])
                 
                 #print(df4.head())
-print(df4.shape[0]*100/df2.shape[0])
+print((df4.shape[0] - df1_out)*100/df2.shape[0])
 
 
 df4.to_csv('output_89.csv', sep=',', encoding='utf-8')
 
         
+
+
+
+
