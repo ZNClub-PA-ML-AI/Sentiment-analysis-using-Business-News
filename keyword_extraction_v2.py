@@ -89,11 +89,11 @@ print((df4.shape[0] - df1_out)*100/df2.shape[0])
 
 print(df1_out,df6.shape[0],(df4.shape[0] - df1_out),df7.shape[0])
 
-
-df4.to_csv('output_89.csv', sep=',', encoding='utf-8')
-df6.to_csv('economictimes_href.csv', sep=',', encoding='utf-8')
-df7.to_csv('livemint_href.csv', sep=',', encoding='utf-8')
-        
+#
+#df4.to_csv('output_89.csv', sep=',', encoding='utf-8')
+#df6.to_csv('economictimes_href.csv', sep=',', encoding='utf-8')
+#df7.to_csv('livemint_href.csv', sep=',', encoding='utf-8')
+#        
 
 
 

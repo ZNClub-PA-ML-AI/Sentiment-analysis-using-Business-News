@@ -33,4 +33,3 @@ file_name = 'output_89.csv'
 df = pd.read_csv(file_name,encoding='iso-8859-1')
 #print(df.head())
 print(df.shape[0]*100/(1978+995))
-
