@@ -41,7 +41,7 @@ text={
 
 
 
-tokens = nltk.word_tokenize(text)
+tokens = nltk.word_tokenize(text['title'])
 #print(tokens)
 
 unigram = tokens
