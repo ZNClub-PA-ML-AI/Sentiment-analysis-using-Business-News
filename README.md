@@ -6,7 +6,6 @@
 3. unicode filtering
 
 ## SENTIMENT EVALUATION
-http://www.nltk.org/howto/sentiwordnet.html
 http://text-processing.com/demo/sentiment/
 ## NGRAMS
 http://stackoverflow.com/questions/32441605/generating-ngrams-unigrams-bigrams-etc-from-a-large-corpus-of-txt-files-and-t
