@@ -11,13 +11,15 @@ import csv
 
 def generate(df):
 	test=''
+	result=pd.DataFrame()
 	for index,row in df.iterrows():
 		splitter=row.href.split("/")
 #		test=splitter[4]
 		rdf=pd.DataFrame({'id':splitter[4],'date':[row.date],'title':[row.title],'intro':[row.intro]})
+		result=pd.concat([result,rdf])
 #	print(test)		
-	rdf.set_index('id', inplace=True)
-	return rdf
+	result.set_index('id', inplace=True)
+	return result
 
 filenames_d = ['livemint_data.csv','livemint_data_2.csv']
 filenames_b = ['livemint_data_body.csv','livemint_data_body_2.csv']
