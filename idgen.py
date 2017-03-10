@@ -23,10 +23,22 @@ def generate(df):
 
 filenames_d = ['livemint_data.csv','livemint_data_2.csv']
 filenames_b = ['livemint_data_body.csv','livemint_data_body_2.csv']
-
+output=[]
 for i in filenames_d:
 	df=pd.read_csv(i,encoding='iso-8859-1')
 	print(df.columns)
-	result=generate(df)
+	output.append(generate(df))
 #	print(result.head(2))
-	result.to_csv('data_o1.csv', sep=',', encoding='utf-8')
+#	result.to_csv('data_o1.csv', sep=',', encoding='utf-8')
+
+out=pd.DataFrame()
+
+for i in output:
+	out=pd.concat([out,i])
+print(out.describe())
+out.to_csv('data_o1.csv', sep=',', encoding='utf-8')
+
+
+
+
+
