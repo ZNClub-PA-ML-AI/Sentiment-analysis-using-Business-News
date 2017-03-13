@@ -30,16 +30,16 @@ df2=pd.read_csv(filenames[1])
 # create sets of ids
 
 id_df1=set(df1['id'].tolist())
-print(len(id_df1))
+#print(len(id_df1))
 
 id_df2=set(df2['id'].tolist())
-print(len(id_df2))
+#print(len(id_df2))
 
 ids=id_df1.intersection(id_df2)
-print(len(ids))
+#print(len(ids))
 
 not_present=id_df1-id_df2
-print(len(not_present))
+#print(len(not_present))
 
 df3=pd.DataFrame()
 
@@ -48,17 +48,17 @@ for i1,r1 in df1.iterrows():
         temp=pd.DataFrame({'id':[r1.id],'date':[r1.date],'title':[r1.title],'intro':[r1.intro]})
         df3=pd.concat([df3,temp])
     
-print(df3.describe())
+#print(df3.describe())
 result=pd.DataFrame()
 c=0
 
 # sort both dataframes
 
 df1 = df3.sort_values(['id'],ascending=[1])
-print(df1.head(3))
+#print(df1.head(3))
 
 df2 = df2.sort_values(['id'],ascending=[1])
-print(df2.head(3))
+#print(df2.head(3))
 #for i1,r1 in df1.iterrows():
 #    for i2,r2 in df2.iterrows():
 #        id1 = r1.id
@@ -71,3 +71,6 @@ print(df2.head(3))
 #
 ##print(result.describe())
 #print("cool",c)
+
+result = pd.concat([df1, df2], axis=1, join_axes=[df1.index])
+result.to_csv('data_joined_1.csv', sep=',', encoding='utf-8')
