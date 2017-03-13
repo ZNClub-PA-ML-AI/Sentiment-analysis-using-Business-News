@@ -72,5 +72,7 @@ df2 = df2.sort_values(['id'],ascending=[1])
 ##print(result.describe())
 #print("cool",c)
 
-result = pd.concat([df1, df2], axis=1)
-result.to_csv('data_joined_1.csv', sep=',', encoding='utf-8')
+
+
+#result = pd.concat([df1, df2], axis=1)
+#result.to_csv('data_joined_1.csv', sep=',', encoding='utf-8')
