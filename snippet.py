@@ -7,8 +7,8 @@ Created on Fri Feb  3 08:21:39 2017
 import re
 import pandas as pd
 
-    ## REGEX FILTER ALGO START
-"""    
+## REGEX FILTER ALGO START    
+  
 text = '''
 <p class="xh-highlight">Singed by the choice made by its predecessor, the current committee set up last October to look for a successor to run the Tata Group, has made the eminently safer choice of a chairman who has no other interests in the group apart from the mandated task of running it. In selecting group insider Natarajan Chandrasekaran, chief executive of Tata Consultancy Services Ltd since October 2009 and a TCS lifer, having joined the company straight after completing his Masters in Computer Applications from Regional Engineering College, Trichy, the committee has clearly decided to play safe this time around.</p><p class="xh-highlight">
 				   
@@ -27,7 +27,7 @@ text = re.sub('(<p>|<p class="xh-highlight">|</p>)', "", text)
 text = re.sub("<i>The writer does not own shares in the above-mentioned companies.</i>","",text)
 
 print("\n",text)
-"""
+
 """
 
 abc…	Letters
@@ -56,18 +56,5 @@ abc…	Letters
 (abc|def)	Matches abc or def
 """
     ## REGEX FILTER ALGO END
-
-    ## ID EXTRACTION ALGO START
-
-file_name = 'livemint_data.csv'
-
-df = pd.read_csv(file_name,encoding='iso-8859-1')
-#print(df.head())
-print(df.shape) 
-
-    ## ID EXTRACTION ALGO END
-
-    ## 
-    
-    
+  
     
