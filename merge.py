@@ -38,3 +38,23 @@ print(len(id_df2))
 ids=id_df1.intersection(id_df2)
 print(len(ids))
 
+not_present=id_df1-id_df2
+print(len(not_present))
+
+
+
+
+result=pd.DataFrame()
+c=0
+#for i1,r1 in df1.iterrows():
+#    for i2,r2 in df2.iterrows():
+#        id1 = r1.id
+#        id2 = r2.id
+#        if id1!=id2:
+#            pass
+#            #c=c+1
+#            #match=pd.DataFrame({'id':[r1.id],'data':[r1.data],'title':[r1.title],'intro':[r1.intro],'body':[r2.body]})
+#            #result = pd.concat([result,match])
+#
+##print(result.describe())
+#print("cool",c)
