@@ -1,6 +1,13 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 1811:04:40 2017
 
-@author: ZNevzz
 """
+import pandas as pd
+
+
+#read file
+filenames=['data_joined_1.csv']
+
+#snippet
+
+html=''
+
+
