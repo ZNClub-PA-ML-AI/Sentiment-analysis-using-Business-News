@@ -43,6 +43,17 @@ for i1,r1 in df1.iterrows():
         c=c+1
         
         ids.remove(r1.id)
+        
+df1 = df3.sort_values(['id'],ascending=[1])
+df1.set_index('id') 
+#print(df1.head(3))
+
+for i2,r2 in df2.iterrows():
+    
+    if r2.id in ids:
+        
+        temp=pd.DataFrame({'id':[r2.id],'body':[r2.body]})
+        df3=pd.concat([df3,temp])        
     
 #print(df3.describe())
 #print(df2.describe())
@@ -50,11 +61,9 @@ result=pd.DataFrame()
 #print(c,len(ids))
 # sort both dataframes
 
-df1 = df3.sort_values(['id'],ascending=[1])
-df1.set_index('id') 
-#print(df1.head(3))
 
-df2 = df2.sort_values(['id'],ascending=[1])
+
+df2 = df3.sort_values(['id'],ascending=[1])
 df2.set_index('id')
 #print(df2.head(3))
 #for i1,r1 in df1.iterrows():
