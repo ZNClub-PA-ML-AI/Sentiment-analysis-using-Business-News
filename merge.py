@@ -34,11 +34,13 @@ not_present=id_df1-id_df2
 #print(len(not_present))
 
 df3=pd.DataFrame()
-
+c=0
 for i1,r1 in df1.iterrows():
     if r1.id not in not_present:
         temp=pd.DataFrame({'id':[r1.id],'date':[r1.date],'title':[r1.title],'intro':[r1.intro]})
         df3=pd.concat([df3,temp])
+
+        c=c+1
     
 print(df3.describe())
 print(df2.describe())
