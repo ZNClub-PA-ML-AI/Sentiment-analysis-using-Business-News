@@ -9,7 +9,7 @@ import pandas as pd
 
 #read file
 
-filenames=['data_o1.csv','data_o2.csv']
+filenames=['data_o1.csv','data_o3.csv']
 
 df1=pd.read_csv(filenames[0])
 df2=pd.read_csv(filenames[1])
@@ -66,7 +66,7 @@ df2 = df2.sort_values(['id'],ascending=[1])
 
 
 
-result = pd.concat([df1, df2], axis=1,join='inner')
+result = pd.concat([df1, df2], axis=0,join='inner')
 result.to_csv('data_joined_2.csv', sep=',', encoding='utf-8')
 
 
