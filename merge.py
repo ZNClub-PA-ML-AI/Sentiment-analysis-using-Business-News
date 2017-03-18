@@ -72,7 +72,7 @@ df2.set_index('id')
 
 
 
-result = pd.concat([df1, df2], axis=0,join='inner')
+result = pd.concat([df1, df2], axis=1,join='inner')
 result.to_csv('data_joined_2.csv', sep=',', encoding='utf-8')
 
 
