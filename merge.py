@@ -80,7 +80,7 @@ df2.set_index('id')
 #print("cool",c)
 
 print(len(df1['id'].tolist()),len(df2['id'].tolist()))
-result = pd.concat([df1, df2], axis=1,join='inner',join_axes=df1['id'].tolist())
+result = pd.concat([df1, df2], axis=1,join='inner') 
 result.to_csv('data_joined_2.csv', sep=',', encoding='utf-8')
 
 
