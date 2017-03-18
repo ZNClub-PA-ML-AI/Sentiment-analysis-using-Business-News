@@ -45,8 +45,7 @@ for i1,r1 in df1.iterrows():
 print(df3.describe())
 print(df2.describe())
 result=pd.DataFrame()
-c=0
-
+print(c)
 # sort both dataframes
 
 df1 = df3.sort_values(['id'],ascending=[1])
