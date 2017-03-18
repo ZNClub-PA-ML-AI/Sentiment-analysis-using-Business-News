@@ -41,6 +41,8 @@ for i1,r1 in df1.iterrows():
         df3=pd.concat([df3,temp])
 
         c=c+1
+        
+        ids.remove(r1.id)
     
 #print(df3.describe())
 #print(df2.describe())
