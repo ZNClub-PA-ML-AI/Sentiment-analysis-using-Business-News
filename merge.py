@@ -47,7 +47,7 @@ for i1,r1 in df1.iterrows():
 #print(df3.describe())
 #print(df2.describe())
 result=pd.DataFrame()
-print(c,len(ids))
+#print(c,len(ids))
 # sort both dataframes
 
 df1 = df3.sort_values(['id'],ascending=[1])
@@ -72,7 +72,7 @@ df2.set_index('id')
 
 
 
-result = pd.concat([df1, df2], axis=1,join='inner')
+result = pd.concat([df1, df2], axis=1,join='inner',join_axes=df1['id'].tolist())
 result.to_csv('data_joined_2.csv', sep=',', encoding='utf-8')
 
 
