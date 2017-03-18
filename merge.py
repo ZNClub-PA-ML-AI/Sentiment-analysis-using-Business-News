@@ -14,7 +14,7 @@ import re
 import pandas as pd
 from collections import defaultdict
 from numpy import array
-import csv
+import csv['data_o1.csv','data_o3.csv']
 
 
 filenames=['data_o1.csv','data_o2.csv']
