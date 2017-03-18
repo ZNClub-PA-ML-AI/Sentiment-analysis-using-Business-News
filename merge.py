@@ -47,9 +47,11 @@ c=0
 # sort both dataframes
 
 df1 = df3.sort_values(['id'],ascending=[1])
+df1.set_index('id') 
 #print(df1.head(3))
 
 df2 = df2.sort_values(['id'],ascending=[1])
+df2.set_index('id')
 #print(df2.head(3))
 #for i1,r1 in df1.iterrows():
 #    for i2,r2 in df2.iterrows():
