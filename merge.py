@@ -42,10 +42,10 @@ for i1,r1 in df1.iterrows():
 
         c=c+1
     
-print(df3.describe())
-print(df2.describe())
+#print(df3.describe())
+#print(df2.describe())
 result=pd.DataFrame()
-print(c)
+print(c,len(ids))
 # sort both dataframes
 
 df1 = df3.sort_values(['id'],ascending=[1])
