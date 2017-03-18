@@ -6,16 +6,8 @@ Created on Mon Mar 13 11:27:40 2017
 """
 
 import pandas as pd
-import codecs
 
 #read file
-
-import re
-import pandas as pd
-from collections import defaultdict
-from numpy import array
-import csv['data_o1.csv','data_o3.csv']
-
 
 filenames=['data_o1.csv','data_o2.csv']
 
@@ -74,5 +66,8 @@ df2 = df2.sort_values(['id'],ascending=[1])
 
 
 
-#result = pd.concat([df1, df2], axis=1)
-#result.to_csv('data_joined_1.csv', sep=',', encoding='utf-8')
+result = pd.concat([df1, df2], axis=1,join='inner')
+result.to_csv('data_joined_2.csv', sep=',', encoding='utf-8')
+
+
+
