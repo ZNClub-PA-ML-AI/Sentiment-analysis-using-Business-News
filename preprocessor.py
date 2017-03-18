@@ -21,8 +21,9 @@ df1=pd.read_csv(filenames[0])
 
 df2=pd.DataFrame()
 for k,r in df1.iterrows():
-	temp1=BeautifulSoup(r.body,"lxml")
+	temp1=BeautifulSoup(str(r.body),"lxml")
 	df=pd.DataFrame({'id':[r.id],'body':[temp1.get_text()]})
 	df2=pd.concat([df2,df])
 df2.to_csv('data_o3.csv', sep=',', encoding='utf-8')
+
 
