@@ -51,6 +51,7 @@ for i,r in df.iterrows():
 	temp=pd.DataFrame({'date':[date_ext(str(r.date))],'time':[time_ext(str(r.date))],'title':[r.title],'intro':[r.intro],'body':[r.body],'id':[r.id]})
 	result=pd.concat([result,temp])
 
+result.set_index(['date'])
 #print(result.head(2))
 result.to_csv('normalized.csv',sep=',',encoding='utf-8')
 
