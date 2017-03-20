@@ -33,6 +33,7 @@ ids=id_df1.intersection(id_df2)
 not_present=id_df1-id_df2
 #print(len(not_present))
 
+# create new df1 with unique rows
 df3=pd.DataFrame()
 c=0
 for i1,r1 in df1.iterrows():
@@ -48,6 +49,8 @@ df1 = df3.sort_values(['id'],ascending=[1])
 df1.set_index('id') 
 #print(df1.head(3))
 
+# create new df2 with unique rows
+df3=pd.DataFrame()
 for i2,r2 in df2.iterrows():
     
     if r2.id in ids:
@@ -59,10 +62,8 @@ for i2,r2 in df2.iterrows():
 #print(df2.describe())
 result=pd.DataFrame()
 #print(c,len(ids))
+
 # sort both dataframes
-
-
-
 df2 = df3.sort_values(['id'],ascending=[1])
 df2.set_index('id')
 #print(df2.head(3))
