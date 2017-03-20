@@ -29,6 +29,8 @@ id_df2=set(df2['id'].tolist())
 
 ids=id_df1.intersection(id_df2)
 #print(len(ids))
+# copy of ids for 2nd for loop
+cp_ids = ids
 
 not_present=id_df1-id_df2
 #print(len(not_present))
@@ -54,20 +56,23 @@ df1.set_index('id')
 df4=pd.DataFrame()
 for i2,r2 in df2.iterrows():
     
-    if r2.id in ids:
+    if r2.id in cp_ids:
         
         temp=pd.DataFrame({'id':[r2.id],'body':[r2.body]})
-        df4=pd.concat([df4,temp])        
+        df4=pd.concat([df4,temp])
+        cp_ids.remove(r2.id)
 
-print(df3.describe())
-print(df4.describe())
-result=pd.DataFrame()
+#print(df3.describe())
+#print(df4.describe())
+
 #print(c,len(ids))
 
 # sort both dataframes
+
 print("df4",df4.columns)
 df2 = df4.sort_values(['id'],ascending=[1])
 df2.set_index('id')
+
 #print(df2.head(3))
 #for i1,r1 in df1.iterrows():
 #    for i2,r2 in df2.iterrows():
@@ -82,6 +87,7 @@ df2.set_index('id')
 ##print(result.describe())
 #print("cool",c)
 
+result=pd.DataFrame()
 print(len(df1['id'].tolist()),len(df2['id'].tolist()))
 result = pd.concat([df1, df2], axis=1,join='inner') 
 result.to_csv('data_joined_2.csv', sep=',', encoding='utf-8')
