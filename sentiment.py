@@ -21,15 +21,16 @@ def sentiment_cal(title,intro,body):
 	return
 
 
-# test vader with title
+# test vader with title,intro
 
-t_list = df.title.tolist()[:4]
-print(len(t_list))
+#t_list = df.title.tolist()[:4]
+i_list = df.intro.tolist()[:4]
+print(len(i_list))
 sia = SentimentIntensityAnalyzer()
 
-for t in t_list:
-
-	ps = sia.polarity_scores(t)
+#for t in t_list:
+for i in i_list:
+	ps = sia.polarity_scores(i)
 	print(ps['compound'])
 
 
