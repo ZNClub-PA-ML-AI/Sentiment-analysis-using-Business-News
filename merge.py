@@ -6,6 +6,7 @@ Created on Mon Mar 13 11:27:40 2017
 """
 
 import pandas as pd
+import copy
 
 #read file
 
@@ -30,7 +31,7 @@ id_df2=set(df2['id'].tolist())
 ids=id_df1.intersection(id_df2)
 #print(len(ids))
 # copy of ids for 2nd for loop
-cp_ids = ids
+cp_ids = copy.deepcopy(ids)
 
 not_present=id_df1-id_df2
 #print(len(not_present))
