@@ -29,7 +29,3 @@ for t in t_list:
 	ps = sia.polarity_scores(t)
 	print(ps['compound'])
 
-i_list = df.intro.tolist()[:4]
-for i in i_list:
-	ps = sia.polarity_scores(i)
-	print(ps['compound']
