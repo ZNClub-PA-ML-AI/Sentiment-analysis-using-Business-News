@@ -33,5 +33,3 @@ i_list = df.intro.tolist()[:4]
 for i in i_list:
 	ps = sia.polarity_scores(i)
 	print(ps['compound']
-
-
