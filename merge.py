@@ -50,13 +50,13 @@ df1.set_index('id')
 #print(df1.head(3))
 
 # create new df2 with unique rows
-df3=pd.DataFrame()
+df4=pd.DataFrame()
 for i2,r2 in df2.iterrows():
     
     if r2.id in ids:
         
         temp=pd.DataFrame({'id':[r2.id],'body':[r2.body]})
-        df3=pd.concat([df3,temp])        
+        df4=pd.concat([df4,temp])        
     
 #print(df3.describe())
 #print(df2.describe())
@@ -64,7 +64,7 @@ result=pd.DataFrame()
 #print(c,len(ids))
 
 # sort both dataframes
-df2 = df3.sort_values(['id'],ascending=[1])
+df2 = df4.sort_values(['id'],ascending=[1])
 df2.set_index('id')
 #print(df2.head(3))
 #for i1,r1 in df1.iterrows():
