@@ -40,13 +40,14 @@ for i1,r1 in df1.iterrows():
     if r1.id in ids:
         temp=pd.DataFrame({'id':[r1.id],'date':[r1.date],'title':[r1.title],'intro':[r1.intro]})
         df3=pd.concat([df3,temp])
-
         c=c+1
-        
         ids.remove(r1.id)
-        
+
+print("df3",df3.columns)
+
 df1 = df3.sort_values(['id'],ascending=[1])
 df1.set_index('id') 
+
 #print(df1.head(3))
 
 # create new df2 with unique rows
@@ -57,13 +58,14 @@ for i2,r2 in df2.iterrows():
         
         temp=pd.DataFrame({'id':[r2.id],'body':[r2.body]})
         df4=pd.concat([df4,temp])        
-    
-#print(df3.describe())
-#print(df2.describe())
+
+print(df3.describe())
+print(df4.describe())
 result=pd.DataFrame()
 #print(c,len(ids))
 
 # sort both dataframes
+print("df4",df4.columns)
 df2 = df4.sort_values(['id'],ascending=[1])
 df2.set_index('id')
 #print(df2.head(3))
