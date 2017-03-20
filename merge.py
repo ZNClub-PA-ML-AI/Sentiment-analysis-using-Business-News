@@ -53,6 +53,7 @@ df1.set_index('id')
 #print(df1.head(3))
 
 # create new df2 with unique rows
+len(cp_ids)
 df4=pd.DataFrame()
 for i2,r2 in df2.iterrows():
     
