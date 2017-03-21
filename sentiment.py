@@ -1,4 +1,4 @@
-|||"""
+"""
 Created on Mon Mar 20 11:41:40 2017
 
 @author: ZNevzz
@@ -47,6 +47,12 @@ for t in t_list:
 
 i_list = df.intro.tolist()[:4]
 iis=[]
+for i in i_list:
+	ps = sia.polarity_scores(i)
+	print(ps['compound'],ps['pos'],ps['neg'],ps['neu'])
+	iis.append(ps['compound'])
+
+b_list = df.body.tolist()[:4]
 for i in i_list:
 	ps = sia.polarity_scores(i)
 	print(ps['compound'],ps['pos'],ps['neg'],ps['neu'])
