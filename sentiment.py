@@ -23,7 +23,7 @@ def sentiment_cal(title,intro,body):
 result = pd.DataFrame()
 for i,r in df.iterrows():
 	score=sentiment_cal(str(r.title),str(r.intro),str(r.body))
-	temp=pd.Dataframe({'date':[r.date],'time':[r.time],'id':[r.id],'title':[r.title],'intro':[r.intro],'body':[r.body],'score':[score]})
+	temp=pd.DataFrame({'date':[r.date],'time':[r.time],'id':[r.id],'title':[r.title],'intro':[r.intro],'body':[r.body],'score':[score]})
 	result = pd.concat([result,temp])
 print(result.head(2))
 
