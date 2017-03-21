@@ -1,4 +1,4 @@
-"""
+|||"""
 Created on Mon Mar 20 11:41:40 2017
 
 @author: ZNevzz
@@ -15,9 +15,15 @@ df = pd.read_csv(filenames[0])
 def sentiment_cal(title,intro,body):
 	
 	sia = SentimentIntensityAnalyzer()
-	return 0
+	tscore = sia.polarity_scores(title)
+	iscore= sia.polarity_scores(intro)
+	bscore= eia.polarity_scores(body)
+	
+	iscore = 0.5*float(iscore)
+	bscore = 0.25*float(bscore)
+	return (tscore+iscore+bscore)
 		
-#t_score = 
+#t_score = ()
 
 	
 result = pd.DataFrame()
