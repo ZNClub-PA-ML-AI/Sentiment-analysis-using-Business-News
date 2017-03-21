@@ -71,6 +71,12 @@ for i in i_list:
 	iis.append(ps['compound'])
 
 b_list = df.body.tolist()[:4]
+for i in i_list:
+	ps = sia.polarity_scores(i)
+	print(ps['compound'],ps['pos'],ps['neg'],ps['neu'])
+	iis.append(ps['compound'])
+
+b_list = df.body.tolist()[:4]
 bs=[]
 for b in b_list:
 	ps = sia.polarity_scores(b)
