@@ -16,12 +16,13 @@ def sentiment_cal(title,intro,body):
 	
 	sia = SentimentIntensityAnalyzer()
 	tscore = sia.polarity_scores(title)
-	iscore= sia.polarity_scores(intro)
-	bscore= sia.polarity_scores(body)
+	#iscore= sia.polarity_scores(intro)
+	#bscore= sia.polarity_scores(body)
 	tscore = float(tscore['compound'])
-	iscore = 0.5*float(iscore['compound'])
-	bscore = 0.25*float(bscore['compound'])
-	return (tscore+iscore+bscore)
+	#iscore = 0.5*float(iscore['compound'])
+	#bscore = 0.25*float(bscore['compound'])
+	#return (tscore+iscore+bscore)
+	return tscore
 		
 #t_score = ()
 
