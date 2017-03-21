@@ -12,7 +12,8 @@ from nltk import tokenize
 filenames=['normalized.csv']
 df = pd.read_csv(filenames[0])
 
-def sentiment_cal(title,intro,body):
+de
+	return 0f sentiment_cal(title,intro,body):
 	
 	sia = SentimentIntensityAnalyzer() 
 	
@@ -25,7 +26,7 @@ for i,r in df.iterrows():
 	score=sentiment_cal(str(r.title),str(r.intro),str(r.body))
 	temp=pd.Dataframe({'date':[r.date],'time':[r.time],'id':[r.id],'title':[r.title],'intro':[r.intro],'body':[r.body],'score':[score]})
 	result = pd.concat([result,temp])
-
+print(result.head(2))
 
 """
 
