@@ -12,12 +12,11 @@ from nltk import tokenize
 filenames=['normalized.csv']
 df = pd.read_csv(filenames[0])
 
-de
-	return 0f sentiment_cal(title,intro,body):
+def sentiment_cal(title,intro,body):
 	
-	sia = SentimentIntensityAnalyzer() 
-	
-	
+	sia = SentimentIntensityAnalyzer()
+	return 0
+		
 #t_score = 
 
 	
