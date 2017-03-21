@@ -17,7 +17,7 @@ def sentiment_cal(title,intro,body):
 	sia = SentimentIntensityAnalyzer()
 	tscore = sia.polarity_scores(title)
 	iscore= sia.polarity_scores(intro)
-	bscore= eia.polarity_scores(body)
+	bscore= sia.polarity_scores(body)
 	
 	iscore = 0.5*float(iscore)
 	bscore = 0.25*float(bscore)
@@ -47,6 +47,12 @@ for t in t_list:
 
 i_list = df.intro.tolist()[:4]
 iis=[]
+for i in i_list:
+	ps = sia.polarity_scores(i)
+	print(ps['compound'],ps['pos'],ps['neg'],ps['neu'])
+	iis.append(ps['compound'])
+
+b_list = df.body.tolist()[:4]
 for i in i_list:
 	ps = sia.polarity_scores(i)
 	print(ps['compound'],ps['pos'],ps['neg'],ps['neu'])
