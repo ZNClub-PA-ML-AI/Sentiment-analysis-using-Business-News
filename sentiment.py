@@ -20,6 +20,14 @@ def sentiment_cal(title,intro,body):
 
 	return
 
+result = pd.DataFrame()
+for i,r in df.iterrows():
+	score=sentiment_cal(str(r.title),str(r.intro),str(r.body))
+	temp=pd.Dataframe({'date':[r.date],'time':[r.time],'id':[r.id],'title':[r.title],'intro':[r.intro],'body':[r.body],'score':[score]})
+	result = pd.concat([result,temp])
+
+
+"""
 
 # test vader with title
 sia = SentimentIntensityAnalyzer()
@@ -53,4 +61,4 @@ for i in range(0,4):
 	print(i,ts[i],iis[i],bs[i])
 	score[i]=ts[i]+(iis[i]*float(0.5))+(bs[i]*float(0.25))
 print(score)
-
+"""
