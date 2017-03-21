@@ -14,11 +14,12 @@ df = pd.read_csv(filenames[0])
 
 def sentiment_cal(title,intro,body):
 	
-	sia = SentimentIntensityAnaly
-	#t_score = 
+	sia = SentimentIntensityAnalyzer() 
+	
+	
+#t_score = 
 
-	return
-
+	
 result = pd.DataFrame()
 for i,r in df.iterrows():
 	score=sentiment_cal(str(r.title),str(r.intro),str(r.body))
