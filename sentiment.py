@@ -7,6 +7,9 @@ Created on Mon Mar 20 11:41:40 2017
 import pandas as pd
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
+import time
+start=time.time()
+
 
 # read file
 filenames=['normalized.csv']
@@ -15,24 +18,25 @@ df = pd.read_csv(filenames[0])
 def sentiment_cal(title,intro,body):
 	
 	sia = SentimentIntensityAnalyzer()
-	tscore = sia.polarity_scores(title)
+	#tscore = sia.polarity_scores(title)
 	#iscore= sia.polarity_scores(intro)
-	#bscore= sia.polarity_scores(body)
-	tscore = float(tscore['compound'])
+	bscore= sia.polarity_scores(body)
+	#tscore = float(tscore['compound'])
 	#iscore = 0.5*float(iscore['compound'])
-	#bscore = 0.25*float(bscore['compound'])
+	bscore = 0.25*float(bscore['compound'])
 	#return (tscore+iscore+bscore)
-	return tscore
-		
-#t_score = ()
+	return bscore
 
-	
 result = pd.DataFrame()
 for i,r in df.iterrows():
 	score=sentiment_cal(str(r.title),str(r.intro),str(r.body))
 	temp=pd.DataFrame({'date':[r.date],'time':[r.time],'id':[r.id],'title':[r.title],'intro':[r.intro],'body':[r.body],'score':[score]})
 	result = pd.concat([result,temp])
-print(result.head(2))
+#print(result.head(2))
+
+result.to_csv('labeled.csv',encoding='utf-8',sep=',')
+print(time.time()-start)
+
 
 """
 
