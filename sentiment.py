@@ -14,8 +14,7 @@ df = pd.read_csv(filenames[0])
 
 def sentiment_cal(title,intro,body):
 	
-	sia = SentimentIntensityAnalyzer()
-
+	sia = SentimentIntensityAnaly
 	#t_score = 
 
 	return
