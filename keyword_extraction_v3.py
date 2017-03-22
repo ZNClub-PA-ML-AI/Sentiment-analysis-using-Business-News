@@ -14,4 +14,9 @@ df = pd.read_csv(filenames[0])
 
 print(df.describe(),df.head())
 
+helper = defaultdict(list)
+keywords='Reliance Industries,Mukesh Ambani,Anil Ambani,Reliance Commercial Corporation,RELIANCE,RIL,Jio'
+helper['REL']=keywords.split()
+
+print(helper)
 
