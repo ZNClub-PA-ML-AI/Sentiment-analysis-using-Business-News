@@ -12,6 +12,6 @@ from collections import defaultdict
 filenames=['labeled.csv','company_keyword.xlsx']
 df = pd.read_csv(filenames[0])
 
-print(df.describ(),df.head())
+print(df.describe(),df.head())
 
 
