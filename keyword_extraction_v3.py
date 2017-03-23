@@ -23,10 +23,11 @@ c=0
 for i,r in df.iterrows():
 	t=str(r.title).lower()
 	i=str(r.intro).lower()
+	b=str(r.body).lower()
 	
 	for k in helper['REL']:
 		pattern=k.lower()
-		if re.search(pattern,i) or re.search(pattern,t):
+		if re.search(pattern,i) or re.search(pattern,t) or re.search(pattern,b):
 			c=c+1
 			break
 print(c)
