@@ -6,7 +6,7 @@ Created on Mon Mar 20 11:41:40 2017
 
 import pandas as pd
 from collections import defaultdict
-
+import re
 
 # read file
 filenames=['labeled.csv','company_keyword.xlsx']
@@ -19,4 +19,14 @@ keywords='Reliance Industries,Mukesh Ambani,Anil Ambani,Reliance Commercial Corp
 helper['REL']=keywords.split(',')
 
 print(helper)
+c=0
+for i,r in df.iterrows()
+	t=str(r.title).lower()
+	i=str(r.intro).lower()
+	pattern=k.lower()
+	for k in helper['REL']:
+		if re.search(pattern,i) or re.search(pattern,t):
+			c=c+1
+			break
+print(c)
 
