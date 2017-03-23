@@ -1,5 +1,5 @@
 """
-Created on Mon Mar 20 11:41:40 2017
+Created on Wed Mar 22 11:41:40 2017
 
 @author: ZNevzz
 """
@@ -20,6 +20,8 @@ helper['REL']=keywords.split(',')
 
 #print(helper)
 c=0
+result = df.DataFrame()
+
 for i,r in df.iterrows():
 	t=str(r.title).lower()
 	i=str(r.intro).lower()
@@ -29,7 +31,9 @@ for i,r in df.iterrows():
 		pattern=k.lower()
 		if re.search(pattern,i) or re.search(pattern,t) or re.search(pattern,b):
 			c=c+1
+			temp=df.loc[row_indexer=0]
+			result=pd.concat([result,temp])
 			break
 print(c)
 
-
+    
