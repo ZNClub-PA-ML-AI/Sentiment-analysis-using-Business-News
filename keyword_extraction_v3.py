@@ -34,6 +34,8 @@ for i,r in df.iterrows():
 			temp=df.DataFrame({'date':[r.date],'id':[r.id],'time':[r.time],'title':[r.title],'intro':[r.intro],'body':[r.body],'score':[r.score]})
 			result=pd.concat([result,temp])
 			break
-print(c)
+#print(c)
+result = result.set_index(['score'])
+print(result.describe())
 
-    
+
