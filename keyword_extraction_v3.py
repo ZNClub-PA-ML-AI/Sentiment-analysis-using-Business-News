@@ -31,7 +31,7 @@ for i,r in df.iterrows():
 		pattern=k.lower()
 		if re.search(pattern,i) or re.search(pattern,t) or re.search(pattern,b):
 			c=c+1
-			temp=df.loc[row_indexer=0]
+			temp=df.DataFrame({'date':[r.date],'id':[r.id],'time':[r.time],'title':[r.title],'intro':[r.intro],'body':[r.body],'score':[r.score]})
 			result=pd.concat([result,temp])
 			break
 print(c)
