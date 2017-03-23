@@ -20,7 +20,7 @@ helper['REL']=keywords.split(',')
 
 print(helper)
 c=0
-for i,r in df.iterrows()
+for i,r in df.iterrows():
 	t=str(r.title).lower()
 	i=str(r.intro).lower()
 	pattern=k.lower()
