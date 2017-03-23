@@ -7,7 +7,7 @@ df3= pd.concat([df1,df2],axis=2)
 #print(df3.head())
 
 df = pd.read_csv('REL.csv')
-df = df.set_index(['date'])
+#df = df.set_index(['date'])
 df = df.sort_values(['date'],ascending=[1])
 
 df.to_csv('REL.csv',sep=',',encoding='utf-8')
