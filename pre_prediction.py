@@ -25,7 +25,7 @@ for i,r in df.iterrows():
 	score[date]+=float(r.score)
 
 for k,v in od.items():
-	score[date]=score[date]/v
+	score[k]=score[k]/v
 #print(len(score))
 #print(score)
 
