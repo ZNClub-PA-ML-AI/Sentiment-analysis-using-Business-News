@@ -12,16 +12,25 @@ cnt = collections.Counter(date_list)
 
 od = collections.OrderedDict(sorted(cnt.items()))
 
+score=dict()
 for k,v in od.items():
 	print(k,v)
+	score[k]=0
 
-print(od['2015-11-04'])
-"""
+#print(od['2015-11-04'])
+
+
 for i,r in df.iterrows():
 	date=str(r.date)
-	if prev=-1 or prev!=date:
-		prev=
-"""
+	score[date]+=float(r.score)
+
+print(len(score))
+print(score)
+
+df=pd.DataFrame(score,index=[i for i in range(len(score))])
+df.to_csv('REL_test.csv',sep=',',encoding='utf-8')
+
+
 
 #df = df.set_index(['date'])
 #df.to_csv('REL.csv',sep=',',encoding='utf-8')
