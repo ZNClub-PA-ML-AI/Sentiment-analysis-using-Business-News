@@ -10,7 +10,7 @@ result=pd.DataFrame()
 cnt = collections.Counter(date_list)
 #print(len(cnt))
 
-od = collections.OrderedDict(cnt.items())
+od = collections.OrderedDict(sorted(cnt.items()))
 
 for k,v in od.items():
 	print(k,v)
