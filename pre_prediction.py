@@ -27,8 +27,8 @@ for i,r in df.iterrows():
 print(len(score))
 print(score)
 
-df=pd.DataFrame(score,index=[dates])
-
+df=pd.DataFrame(score,index=['score'])
+df=df.transpose()
 df.to_csv('REL_test.csv',sep=',',encoding='utf-8')
 
 
