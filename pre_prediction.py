@@ -29,10 +29,10 @@ print(score)
 
 df=pd.DataFrame(score,index=['score'])
 df=df.transpose()
-df.to_csv('REL_test.csv',sep=',',encoding='utf-8')
+df.to_csv('REL_score.csv',sep=',',encoding='utf-8')
+df.to_json('REL_score.json')
 
 
 
-#df = df.set_index(['date'])
-#df.to_csv('REL.csv',sep=',',encoding='utf-8')
+
 
