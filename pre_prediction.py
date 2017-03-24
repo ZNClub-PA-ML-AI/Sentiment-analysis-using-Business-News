@@ -24,8 +24,10 @@ for i,r in df.iterrows():
 	date=str(r.date)
 	score[date]+=float(r.score)
 
-print(len(score))
-print(score)
+for k,v in od.items():
+	score[date]=score[date]/v
+#print(len(score))
+#print(score)
 
 df=pd.DataFrame(score,index=['score'])
 df=df.transpose()
