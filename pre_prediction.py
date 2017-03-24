@@ -2,7 +2,7 @@ import pandas as pd
 import collections
 
 df = pd.read_csv('REL.csv')
-date_list = df.date.tolist
+date_list = df.date.tolist()
 dates=set(date_list)
 #print(len(dates))
 
