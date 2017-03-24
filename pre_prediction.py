@@ -13,8 +13,7 @@ cnt = collections.Counter(date_list)
 od = collections.OrderedDict(sorted(cnt.items()))
 
 for k,v in od.items():
-
-print(od['2015-11-04'])
+	print(k,v)
 
 print(od['2015-11-04'])
 """
