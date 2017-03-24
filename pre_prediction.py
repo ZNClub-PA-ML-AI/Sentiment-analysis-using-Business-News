@@ -8,7 +8,11 @@ dates=set(date_list)
 
 result=pd.DataFrame()
 cnt = collections.Counter(date_list)
-print(len(cnt))
+#print(len(cnt))
+
+for k,v in cnt.items():
+	print(k,v)
+
 
 """
 for i,r in df.iterrows():
@@ -20,4 +24,3 @@ for i,r in df.iterrows():
 #df = df.set_index(['date'])
 #df.to_csv('REL.csv',sep=',',encoding='utf-8')
 
-    
