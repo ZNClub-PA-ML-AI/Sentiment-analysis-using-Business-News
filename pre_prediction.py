@@ -26,6 +26,7 @@ for i,r in df.iterrows():
 
 for k,v in od.items():
 	score[k]=score[k]/v
+	print(k,score[k])
 #print(len(score))
 #print(score)
 
