@@ -16,7 +16,7 @@ for k,v in od.items():
 
 print(od['2015-11-04'])
 
-
+print(od['2015-11-04'])
 """
 for i,r in df.iterrows():
 	date=str(r.date)
