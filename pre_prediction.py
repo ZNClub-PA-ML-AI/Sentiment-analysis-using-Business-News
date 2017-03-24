@@ -15,7 +15,7 @@ od = collections.OrderedDict(sorted(cnt.items()))
 for k,v in od.items():
 	print(k,v)
 
-
+print(od['2015-11-04'])
 """
 for i,r in df.iterrows():
 	date=str(r.date)
