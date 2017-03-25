@@ -47,6 +47,25 @@ for i,r in df.iterrows():
 		#new_date=date[0]+'-'+date[1]+'-'+str(day)
 		#score[new_date]+=float(r.score)
 		next_date.append(float(r.score))
+	else:
+		continue
+
+for k,v in od.items():
+	score[k]=score[k]/v
+	print(k,score[k])
+#print(len(score))
+#print(score)
+
+df=pd.DataFrame(score,index=['score'])
+df=df.transpose()
+df.to_csv('REL_score_open.csv',sep=',',encoding='utf-8')
+df.to_json('REL_score_open.json')
+
+
+
+
+
+
 	elif time in range(time_open,time_close):
 		pass
 
