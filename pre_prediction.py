@@ -26,9 +26,9 @@ for k,v in od.items():
 
 for i,r in df.iterrows():
 	date=str(r.date)
-	time=datetime().datetime().strptime(str(r.time),'%H:%M')
-	time_open=datetime().datetime().strptime('09:00','%H:%M')
-	time_close=datetime().datetime().strptime('16:00','%H:%M')
+	time=datetime.datetime.strptime(str(r.time),'%H:%M')
+	time_open=datetime.datetime.strptime('09:00','%H:%M')
+	time_close=datetime.datetime.strptime('16:00','%H:%M')
 	
 	#before open time
 	if time<=time_open:
@@ -47,6 +47,18 @@ for k,v in od.items():
 	score[k]=score[k]/v
 	print(k,score[k])
 #print(len(score))
+#print(score)
+
+df=pd.DataFrame(score,index=['score'])
+df=df.transpose()
+df.to_csv('REL_score_open.csv',sep=',',encoding='utf-8')
+df.to_json('REL_score_open.json')
+
+
+
+
+
+
 #print(score)
 
 df=pd.DataFrame(score,index=['score'])
