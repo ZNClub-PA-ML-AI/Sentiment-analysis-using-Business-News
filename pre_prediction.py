@@ -59,7 +59,7 @@ for k,v in od.items():
 df=pd.DataFrame(score,index=['score'])
 df=df.transpose()
 df.to_csv('REL_score_open.csv',sep=',',encoding='utf-8')
-df.to_json('REL_score_open.json')
+#df.to_json('REL_score_open.json')
 
 
 
