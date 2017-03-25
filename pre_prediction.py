@@ -1,9 +1,9 @@
 """
 Created on Thu Mar 23 20:58:21
 
-import datetime
+@author: ZNevzz
 """
-
+import datetime
 import pandas as pd
 import collections
 
@@ -47,6 +47,18 @@ for k,v in od.items():
 	score[k]=score[k]/v
 	print(k,score[k])
 #print(len(score))
+#print(score)
+
+df=pd.DataFrame(score,index=['score'])
+df=df.transpose()
+df.to_csv('REL_score_open.csv',sep=',',encoding='utf-8')
+df.to_json('REL_score_open.json')
+
+
+
+
+
+
 #print(score)
 
 df=pd.DataFrame(score,index=['score'])
