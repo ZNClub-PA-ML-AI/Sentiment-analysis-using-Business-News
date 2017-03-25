@@ -6,9 +6,14 @@ import pandas as pd
 
 #print(sys.argv)
 
-filename=sys.argv[1]
+filename=str(sys.argv[1])
 df=pd.read_csv(filename)
-#print(df.head(1))
+#df = df.set_index(['date'])
+print(df.head(1))
+#print(filename[:-3])
+df.to_json(filename[:-3]+'json')
+
+
 
 
 
