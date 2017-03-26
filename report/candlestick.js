@@ -65,7 +65,7 @@ $.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Busin
 
 
   // create the chart
-  Highcharts.stockChart('container', {
+  Highcharts.stockChart('container1', {
 
     rangeSelector: {
       selected: 1
