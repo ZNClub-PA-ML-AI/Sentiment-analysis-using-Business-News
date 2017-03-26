@@ -32,6 +32,7 @@ for i,r in df.iterrows():
 	
 	#before open time
 	if time<=time_open:
+		continue
 		if len(next_date)>0:
 			score[date]+=sum(next_date)
 			score[date]+=float(r.score)
@@ -41,6 +42,7 @@ for i,r in df.iterrows():
 			score[date]+=float(r.score)
 	#after close time
 	elif time>time_close:
+		continue
 		#date=date.split('-')
 		#day=date[2]
 		#day=int(day)+1
@@ -48,7 +50,8 @@ for i,r in df.iterrows():
 		#score[new_date]+=float(r.score)
 		next_date.append(float(r.score))
 	else:
-		continue
+		#continue
+		score[date]+=float(r.score)
 
 for k,v in od.items():
 	score[k]=score[k]/v
@@ -58,8 +61,8 @@ for k,v in od.items():
 
 df=pd.DataFrame(score,index=['score'])
 df=df.transpose()
-df.to_csv('REL_score_open.csv',sep=',',encoding='utf-8')
-df.to_json('REL_score_open.json')
+df.to_csv('REL_score_close.csv',sep=',',encoding='utf-8')
+df.to_json('REL_score_close.json')
 
 
 
