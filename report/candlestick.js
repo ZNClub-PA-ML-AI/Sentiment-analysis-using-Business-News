@@ -106,13 +106,13 @@ $.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Busin
 
     series: [{
       type: 'candlestick',
-      name: 'AAPL',
+      name: 'RELIANCE',
       data: ohlc,
       dataGrouping: {
         units: groupingUnits
       }
     }, {
-      type: 'column',
+      type: 'spline',
       name: 'Volume',
       data: vol,
       yAxis: 1,
