@@ -1,4 +1,8 @@
 """
+Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli
+"""
+
+"""
 Created on Wed Mar 22 11:41:40 2017
 
 @author: ZNevzz
@@ -15,8 +19,11 @@ df = pd.read_csv(filenames[0])
 #print(df.describe(),df.head())
 
 helper = defaultdict(list)
-keywords='Reliance Industries,Mukesh Ambani,Anil Ambani,Reliance Commercial Corporation,RELIANCE,RIL,Jio'
-helper['REL']=keywords.split(',')
+#keywords='Reliance Industries,Mukesh Ambani,Anil Ambani,Reliance Commercial Corporation,RELIANCE,RIL,Jio'
+keywords='Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli'
+others=',information technology,I.T.,IT Industry,ITes'
+keywords=keywords+others
+helper['TCS']=keywords.split(',')
 
 #print(helper)
 c=0
@@ -27,7 +34,7 @@ for i,r in df.iterrows():
 	i=str(r.intro).lower()
 	b=str(r.body).lower()
 	
-	for k in helper['REL']:
+	for k in helper['TCS']:
 		pattern=k.lower()
 		if re.search(pattern,i) or re.search(pattern,t) or re.search(pattern,b):
 			c=c+1
@@ -37,5 +44,5 @@ for i,r in df.iterrows():
 #print(c)
 result = result.set_index(['score'])
 print(result.describe())
-result.to_csv('REL.csv',encoding='utf-8',sep=',')
+result.to_csv('TCS.csv',encoding='utf-8',sep=',')
 
