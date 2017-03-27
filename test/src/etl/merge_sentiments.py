@@ -24,7 +24,7 @@ print(out.head(23))
 
 #write to csv
 print(filenames[0][6:9])
-out.to_csv(filenames[0][6:9]+'_sentiment.csv',encoding='utf-8',sep=',')
+out.to_csv('../../../data/processed/'+filenames[0][6:9]+'_sentiment.csv',encoding='utf-8',sep=',')
 
 
 
