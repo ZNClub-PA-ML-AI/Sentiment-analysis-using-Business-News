@@ -6,7 +6,7 @@ import pandas as pd
 
 #print(sys.argv)
 
-filename,type=sys.argv
+filename,type=sys.argv[1],sys.argv[2]
 df=pd.read_csv(filename)
 
 if type=='q':
