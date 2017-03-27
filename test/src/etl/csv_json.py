@@ -13,7 +13,10 @@ if type=='q':
 	df = df.sort_values(['Date'],ascending=[1])
 print(df.head(1))
 
-#print(filename[:-3])
+splitter=filename.split('/')
+filename=splitter[-1]
+
+print(filename[:-3])
 df.to_json('../../../data/json/'+filename[:-3]+'json')
 
 
