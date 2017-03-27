@@ -23,8 +23,8 @@ print(out.head(23))
 #print(result.head(23),result.describe(),result.columns)
 
 #write to csv
-print(filenames[0][:3])
-#out.to_csv(filenames[0][:3]+'sentiment.csv',encoding='utf-8',sep=',')
+print(filenames[0][6:9])
+out.to_csv(filenames[0][6:9]+'_sentiment.csv',encoding='utf-8',sep=',')
 
 
 
