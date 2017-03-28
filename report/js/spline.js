@@ -1,15 +1,35 @@
 //https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Business-News/95e16a9b/REL_score_open.json
 
+//https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Business-News/4d982b42/data/json/REL_sentiment.json
 
-$.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Business-News/95e16a9b/REL_score_open.json', function(data) {
+$.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Business-News/4d982b42/data/json/REL_sentiment.json', function(data) {
 
-  //console.log(data.score);
+  //var close_map = data.close_score;
+  var size = Object.keys(data.date).length;
+  var close = [];
+  var open = [];
 
+  for (var i = 0; i < size; i += 1) {
+    console.log(data.date[i]);
+    console.log(data.open_score[i]);
+    console.log(data.close_score[i]);
 
-
-  var map = data.score;
-  var response=[];
-  
+    //split date ie key
+    var dates = data.date[i].split('-');
+    //adjust month
+    var m = dates[1];
+    m = parseInt(m) - 1;
+    m = m.toString()
+    if (m.length == 1) {
+      m = "0" + m;
+    }
+    var dateUTC = Date.UTC(dates[0], m, dates[2]);
+    
+    open.push([dateUTC,data.open_score[i]]);
+    close.push([dateUTC,data.close_score[i]]);
+    
+  }
+  /*
   for (var key in map) {
     if (map.hasOwnProperty(key)) {
       //console.log(key + " -> " + map[key]);
@@ -36,10 +56,10 @@ $.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Busin
       response.push(temp);
     }
   }
+*/
+  
 
-console.log(response);
-
-  Highcharts.chart('container2', {
+  Highcharts.chart('container', {
     chart: {
       type: 'spline',
       zoomType: 'x'
@@ -78,17 +98,13 @@ console.log(response);
         }
       }
     },
-
-    series: [{
-      name: 'RELIANCE',
-      // Define the data points. All series have a dummy year
-      // of 1970/71 in order to be compared on the same x axis. Note
-      // that in JavaScript, months start at 0 for January, 1 for February etc.
-      data: response
-
-
-      
+    series: [
+    {
+      name: 'RELIANCE OP sentiment',      
+      data: open
+    },{
+      name: 'RELIANCE CP sentiment',      
+      data: close
     }]
   });
-
 });
