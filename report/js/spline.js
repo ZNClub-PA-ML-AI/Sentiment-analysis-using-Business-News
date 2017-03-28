@@ -24,40 +24,11 @@ $.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Busin
       m = "0" + m;
     }
     var dateUTC = Date.UTC(dates[0], m, dates[2]);
-    
-    open.push([dateUTC,data.open_score[i]]);
-    close.push([dateUTC,data.close_score[i]]);
-    
-  }
-  /*
-  for (var key in map) {
-    if (map.hasOwnProperty(key)) {
-      //console.log(key + " -> " + map[key]);
 
-      //split date ie key
-      var dates = key.split('-');
-			if(dates[0]=='2015'){
-      	console.log("2015");
-        continue;
-      }
-      //adjust month
-      var m = dates[1];
-      m = parseInt(m) - 1;
-      m = m.toString()
-      if (m.length == 1) {
-        m = "0" + m;
-      }
-      var dateUTC = Date.UTC(dates[0],m,dates[2]);
-      var score = map[key];
-      var temp=[dateUTC,score];
-      
-      //console.log(temp);
-      
-      response.push(temp);
-    }
+    open.push([dateUTC, data.open_score[i]]);
+    close.push([dateUTC, data.close_score[i]]);
+
   }
-*/
-  
 
   Highcharts.chart('container', {
     chart: {
@@ -84,13 +55,67 @@ $.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Busin
       title: {
         text: 'Sentimental Score'
       },
-      min: -0.30
+      min: -0.30,
+      gridLineWidth: 0,
+      alternateGridColor: null,
+      plotBands: [{ 
+          from: 0.05,
+          to: -0.05,
+          color: 'rgba(0, 0, 0, 0)',
+          label: {
+            text: 'NEUTRAL',
+            style: {
+              color: '#606060'
+            }
+          }
+        }, { 
+          from: 0.05,
+          to: 0.2,
+          color: 'rgba(100, 255, 100, 0.2)',
+          label: {
+            text: 'POSITIVE',
+            style: {
+              color: '#0FFF0F'
+            }
+          }
+        }, { // Light air
+          from: 0.2,
+          to: 0.4,
+          color: 'rgba(100, 255, 100, 0.4)',
+          label: {
+            text: 'HIGHLY POSITIVE',
+            style: {
+              color: '#00F000'
+            }
+          }
+        }, { 
+          from: -0.05,
+          to: -0.2,
+          color: 'rgba(255, 100, 100, 0.2)',
+          label: {
+            text: 'NEGATIVE',
+            style: {
+              color: '#FF0F0F'
+            }
+          }
+        },{
+          from: -0.2,
+          to: -0.4,
+          color: 'rgba(255, 100, 100, 0.5)',
+          label: {
+            text: 'HIGHLY NEGATIVE',
+            style: {
+              color: '#FF0000'
+            }
+          }
+        }
+
+      ]
     },
     tooltip: {
       headerFormat: '<b>{series.name}</b><br>',
       pointFormat: '{point.x:%e. %b}: {point.y:.3f} value'
     },
-
     plotOptions: {
       spline: {
         marker: {
@@ -98,12 +123,11 @@ $.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Busin
         }
       }
     },
-    series: [
-    {
-      name: 'RELIANCE OP sentiment',      
+    series: [{
+      name: 'RELIANCE OP sentiment',
       data: open
-    },{
-      name: 'RELIANCE CP sentiment',      
+    }, {
+      name: 'RELIANCE CP sentiment',
       data: close
     }]
   });
