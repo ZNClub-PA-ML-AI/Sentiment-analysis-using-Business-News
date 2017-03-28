@@ -30,7 +30,7 @@ $.getJSON('https://cdn.rawgit.com/ZNClub-PA-ML-AI/Sentiment-analysis-using-Busin
 
   }
 
-  Highcharts.chart('container', {
+  Highcharts.chart('container2', {
     chart: {
       type: 'spline',
       zoomType: 'x'
