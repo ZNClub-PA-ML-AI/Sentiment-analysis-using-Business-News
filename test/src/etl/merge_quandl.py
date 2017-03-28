@@ -20,5 +20,11 @@ df2=df2.set_index('Date')
 df3=pd.concat([df1,df2],axis='1',join='inner')
 #print(df3.head(1),df3.columns,df3.describe())
 
-print(df1.shape)
+print(df1.shape,df2.shape,df3.shape)
+
+splitter=filename.split('/')
+filename=splitter[-1]
+
+print(filename[:-3])
+df3.to_csv('../../'+filenames[0][:3]+'.csv',encoding='utf-8',sep=',')
 
