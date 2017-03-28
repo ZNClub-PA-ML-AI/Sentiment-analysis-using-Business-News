@@ -26,5 +26,5 @@ splitter=filenames[0].split('/')
 filename=splitter[-1]
 
 print(filename[:-3])
-df3.to_csv('../../'+filename[:3]+'.csv',encoding='utf-8',sep=',')
+df3.to_csv('../../'+filename[:3]+'_qs.csv',encoding='utf-8',sep=',')
 
