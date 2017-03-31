@@ -25,11 +25,26 @@ Y=np.array(df[['Open']])
 print(len(X),len(Y))
 x_train,x_test, y_train, y_test = cross_validation.train_test_split(X, Y, test_size=0.25)
 print(len(x_train),len(x_test),len(y_train),len(y_test))
-
+## linear
 clf= LinearRegression(n_jobs=-1)
 clf.fit(x_train, y_train)
 confidence = clf.score(x_test, y_test)
 print('Linear Confidence Score: %f'%(confidence*100))
+
+
+## svm 
+
+df_new=pd.DataFrame()
+for i,r in df.iterrows():
+	label=''
+	if float(r.open_score)>0.0:
+		label="POSITIVE"
+	elif float(r.open_score)<0.0:
+		label="NEGATIVE"
+  	else:
+		label="NEUTRAL"
+	temp=pd.DataFrame({})
+
 
 clf= svm.SVC(kernel='linear',gamma=1)
 clf.fit(x_train, y_train.ravel())
