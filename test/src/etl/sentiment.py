@@ -24,8 +24,14 @@ def sentiment_cal(title,intro,body):
 	tscore = float(tscore['compound'])
 	iscore = 0.5*float(iscore['compound'])
 	bscore = 0.25*float(bscore['compound'])
-	return (tscore+iscore+bscore)
-	#return bscore
+	max_pos,max_neg=1.0,-1.0
+	score=(tscore+iscore+bscore)
+	if score>max_pos:
+		score=max_pos
+	elif score<max_neg:
+		score=max_neg
+	return round(score,2)
+
 
 result = pd.DataFrame()
 for i,r in df.iterrows():
@@ -34,7 +40,7 @@ for i,r in df.iterrows():
 	result = pd.concat([result,temp])
 #print(result.head(2))
 
-result.to_csv('../../labeled_weighted.csv',encoding='utf-8',sep=',')
+result.to_csv('../../labeled_round.csv',encoding='utf-8',sep=',')
 print(time.time()-start)
 
 
