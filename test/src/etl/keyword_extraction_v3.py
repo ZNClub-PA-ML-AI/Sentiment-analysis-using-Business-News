@@ -25,9 +25,7 @@ for i,r in company.iterrows():
 	helper[str(r.company)]=str(r.keyword).split(',')
 print(helper)
 
-energy=',energy sector,powermin,Ministry of Energy sources,Ministry of New and Renewable Energy,MNRE,Ministry of Power'.split(',')
-
-helper['TP'].extend(energy)
+helper['TP'].extend(helper['ENGY'])
 
 
 print(helper['TP'])

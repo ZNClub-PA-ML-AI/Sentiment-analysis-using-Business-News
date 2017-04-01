@@ -1,6 +1,6 @@
 import pandas as pd
 
-df=pd.read_csv('../../REL_score_close.csv')
+df=pd.read_csv('../../labeled.csv')
 
 #print(df.head(1))
 

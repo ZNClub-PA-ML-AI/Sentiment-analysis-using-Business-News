@@ -18,14 +18,14 @@ df = pd.read_csv(filenames[0])
 def sentiment_cal(title,intro,body):
 	
 	sia = SentimentIntensityAnalyzer()
-	#tscore = sia.polarity_scores(title)
-	#iscore= sia.polarity_scores(intro)
+	tscore = sia.polarity_scores(title)
+	iscore= sia.polarity_scores(intro)
 	bscore= sia.polarity_scores(body)
-	#tscore = float(tscore['compound'])
-	#iscore = 0.5*float(iscore['compound'])
+	tscore = float(tscore['compound'])
+	iscore = 0.5*float(iscore['compound'])
 	bscore = 0.25*float(bscore['compound'])
-	#return (tscore+iscore+bscore)
-	return bscore
+	return (tscore+iscore+bscore)
+	#return bscore
 
 result = pd.DataFrame()
 for i,r in df.iterrows():
@@ -34,7 +34,7 @@ for i,r in df.iterrows():
 	result = pd.concat([result,temp])
 #print(result.head(2))
 
-result.to_csv('labeled.csv',encoding='utf-8',sep=',')
+result.to_csv('labeled_weighted.csv',encoding='utf-8',sep=',')
 print(time.time()-start)
 
 
