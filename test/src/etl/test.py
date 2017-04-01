@@ -1,6 +1,6 @@
 import pandas as pd
 
-df=pd.read_csv('../../labeled.csv')
+df=pd.read_csv('../../NSE-RELIANCE.csv')
 
 #print(df.head(1))
 
