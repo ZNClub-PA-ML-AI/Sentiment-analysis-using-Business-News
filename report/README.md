@@ -1,10 +1,16 @@
 # Presentation Layer of Project
 
 ## Web Interface
--HTML
--JS/..
+- HTML
+- JS/..
 
 ## Data Analytics
+1. MISCELLANEOUS
+2. COMPANY LABELED NEWS
+3. COMPANY OPEN AND CLOSE
+4. COMPANY QUANDL DATABASE
+5. COMPANY FINAL DATABASE
+
 ### labeled_round
 - count 1467.000000
 - mean  0.293572
@@ -23,6 +29,13 @@
 - std   0.150481
 - min   -0.249075
 - max   0.249975
+
+### REL LABELED NEWS
+- col body,date
+- count 524,524   
+- unique  524,161   
+
+
 ### TCS_score_open
 - count  232.000000
 - mean     0.083870
