@@ -34,7 +34,7 @@ for i,r in df.iterrows():
 	result = pd.concat([result,temp])
 #print(result.head(2))
 
-result.to_csv('labeled_weighted.csv',encoding='utf-8',sep=',')
+result.to_csv('../../labeled_weighted.csv',encoding='utf-8',sep=',')
 print(time.time()-start)
 
 
