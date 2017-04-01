@@ -3,6 +3,24 @@
 
 
 ## Data Analytics
+### labeled_round
+count      1467.0  1467.000000
+mean          0.0     0.293572
+std           0.0     0.451082
+min           0.0    -1.000000
+max           0.0     1.000000
+### labeled_weighted
+count      1467.0  1467.000000
+mean          0.0     0.300885
+std           0.0     0.470576
+min           0.0    -1.391875
+max           0.0     1.408125
+### labeled
+count      1467.0  1467.000000
+mean          0.0     0.163395
+std           0.0     0.150481
+min           0.0    -0.249075
+max           0.0     0.249975
 ### TCS_score_open
 - count  232.000000
 - mean     0.083870
