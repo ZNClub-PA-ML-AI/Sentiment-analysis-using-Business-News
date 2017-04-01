@@ -7,7 +7,7 @@ import datetime
 import pandas as pd
 import collections
 
-df = pd.read_csv('TCS.csv')
+df = pd.read_csv('../../TCS.csv')
 date_list = df.date.tolist()
 dates=set(date_list)
 #print(len(dates))
