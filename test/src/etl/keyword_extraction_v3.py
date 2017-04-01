@@ -1,6 +1,4 @@
-"""
-Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli
-"""
+
 
 """
 Created on Wed Mar 22 11:41:40 2017
