@@ -12,7 +12,7 @@ start=time.time()
 
 
 # read file
-filenames=['normalized.csv']
+filenames=['../../normalized.csv']
 df = pd.read_csv(filenames[0])
 
 def sentiment_cal(title,intro,body):
