@@ -3,7 +3,13 @@
 
 
 ## Data Analytics
-### labeled with weights
+### labeled_weighted
+count      1467.0  1467.000000
+mean          0.0     0.300885
+std           0.0     0.470576
+min           0.0    -1.391875
+max           0.0     1.408125
+### labeled
 count      1467.0  1467.000000
 mean          0.0     0.163395
 std           0.0     0.150481
