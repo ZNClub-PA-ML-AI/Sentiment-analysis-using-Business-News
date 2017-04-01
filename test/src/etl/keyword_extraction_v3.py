@@ -25,7 +25,7 @@ for i,r in company.iterrows():
 	helper[str(r.company)]=str(r.keyword).split(',')
 print(helper)
 
-helper['TP'].extend(helper['ENGY'])
+helper['REL'].extend(helper['ENGY'])
 
 
 print(helper['TP'])
