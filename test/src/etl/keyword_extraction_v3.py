@@ -23,9 +23,10 @@ helper = defaultdict(list)
 
 for i,r in company.iterrows():
 	helper[str(r.company)]=str(r.keyword).split(',')
-print(helper)
+#print(helper)
 
-id,sector=sys.argv[1],sys.argv[2]
+#id,sector=sys.argv[1],sys.argv[2]
+id,sector='TCS','IT'
 
 helper[id].extend(helper[sector])
 
