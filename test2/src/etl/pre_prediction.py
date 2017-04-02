@@ -62,7 +62,7 @@ for i,r in df.iterrows():
     time=datetime.datetime.strptime(str(r.time),'%H:%M')
     time_open=datetime.datetime.strptime('09:00','%H:%M')
     time_close=datetime.datetime.strptime('16:00','%H:%M')
-    sc=0.0
+    sc=float(r.score)
     
     # check if sentiment of competitor
     ''' 
@@ -98,6 +98,6 @@ for k,v in od.items():
 
 df=pd.DataFrame(score,index=['score'])
 df=df.transpose()
-df.to_csv('../../TCS_score_open.csv',sep=',',encoding='utf-8')
+df.to_csv('../../TCS_score_close.csv',sep=',',encoding='utf-8')
 #df.to_json('TCS_score_open.json')
 

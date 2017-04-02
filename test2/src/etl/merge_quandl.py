@@ -16,6 +16,12 @@ df1=df1.set_index('date')
 
 #quandl csv
 df2=pd.read_csv(filenames[1])
+
+#calculate PC_open and PC_close
+df2['shift_close']=df2['Close'].shift(-1)
+df2['PC_open']=df2['Open']-df2['shift_close']
+df2['PC_close']=df2['Open']-df2['Close']
+
 df2=df2.set_index('Date')
 #print(df2.head(1))
 
@@ -36,7 +42,8 @@ filename=splitter[-1]
 
 
 #shape your df
-df3.columns=['#','open_score','close_score','Open','High','Low','Last','Close','Total Trade Quantity','Turnover (Lacs)']
+df3.columns=['#','open_score','close_score','Open','High','Low','Last','Close','Total Trade Quantity','Turnover (Lacs)','shift_close','PC_open','PC_close']
+print(df3.columns)
 
 df3=df3.sort_index()
 df3.to_csv('../../'+filename[:3]+'_qs.csv',encoding='utf-8',sep=',')
