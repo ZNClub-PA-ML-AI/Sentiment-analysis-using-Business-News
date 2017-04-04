@@ -62,7 +62,7 @@ print("Traditional Method Accuracy for Open Price: ", confidence * 100.0)
 # hybrid open pricec
 
 X = np.array(df.drop(['ForecastOpen', 'ForecastClose'], 1)) #, 'ForecastHigh', 'ForecastLow', 'ForecastClose'], 1))
-#print(X[0], X.shape)
+print(X[0], X.shape)
 X = X[:-forecast_out]
 #print(X[0], X.shape)
 df.dropna(inplace=True)
