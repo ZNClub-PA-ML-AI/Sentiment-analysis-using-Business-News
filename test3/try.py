@@ -27,10 +27,10 @@ df = df[['Open',  'High',  'Low',  'Close', 'open_score', 'close_score']]
 forecast_col = ['Open',  'High',  'Low',  'Close']
 df.fillna(value=-99999, inplace=True)
 
-print ('DF head')
-print (df.head(10))
-print ('DF tail')
-print (df.tail(10))
+#print ('DF head')
+#print (df.head(10))
+#print ('DF tail')
+#print (df.tail(10))
 # forecast_out basically the days ka gap u want to set
 forecast_out = 1
 
@@ -43,9 +43,9 @@ df['ForecastClose'] = df[forecast_col[3]].shift(-forecast_out)
 # tradition open price
 
 X = np.array(df.drop(['ForecastOpen', 'ForecastClose','open_score','close_score'], 1)) #, 'ForecastHigh', 'ForecastLow', 'ForecastClose'], 1))
-#print(X[0], X.shape)
+print(X[0], X.shape)
 X = X[:-forecast_out]
-#print(X[0], X.shape)
+print(X[0], X.shape)
 df.dropna(inplace=True)
 
 y = np.array(df[['ForecastOpen']]) #, 'ForecastHigh', 'ForecastLow', 'ForecastClose']])
@@ -64,7 +64,7 @@ print("Traditional Method Accuracy for Open Price: ", confidence * 100.0)
 X = np.array(df.drop(['ForecastOpen', 'ForecastClose'], 1)) #, 'ForecastHigh', 'ForecastLow', 'ForecastClose'], 1))
 print(X[0], X.shape)
 X = X[:-forecast_out]
-#print(X[0], X.shape)
+print(X[0], X.shape)
 df.dropna(inplace=True)
 
 y = np.array(df[['ForecastOpen']]) #, 'ForecastHigh', 'ForecastLow', 'ForecastClose']])
