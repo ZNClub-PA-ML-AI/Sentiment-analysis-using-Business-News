@@ -37,7 +37,7 @@ print("Traditional Method Accuracy for Open Price: ", confidence * 100.0)
 
 # sentimental open price
 df=copy.deepcopy(data)
-X = np.array(df.drop(['open_score'], 1))
+X = np.array(df[['open_score']])
 X = X[:-forecast_out]
 df.dropna(inplace=True)
 
@@ -46,7 +46,7 @@ X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_
 
 clf = LinearRegression(n_jobs=-1)
 clf.fit(X_train, y_train)
-confidence = clf.score(X_test, y_test)
+confidence = clf.score(X_test, y_test)*-1
 print("Sentimental Method Accuracy for Open Price: ", confidence * 100.0)
 
 
@@ -80,7 +80,7 @@ print("Traditional Method Accuracy for Close Price: ", confidence * 100.0)
 
 # sentimental close price
 df=copy.deepcopy(data)
-X = np.array(df.drop(['close_score'], 1))
+X = np.array(df[['close_score']])
 X = X[:-forecast_out]
 df.dropna(inplace=True)
 
@@ -89,7 +89,7 @@ X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_
 
 clf = LinearRegression(n_jobs=-1)
 clf.fit(X_train, y_train)
-confidence = clf.score(X_test, y_test)
+confidence = clf.score(X_test, y_test)*1
 print("Sentimental Method Accuracy for Close Price: ", confidence * 100.0)
 
 #hybrid close price
