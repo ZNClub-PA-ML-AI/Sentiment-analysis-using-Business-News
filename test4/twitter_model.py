@@ -175,4 +175,16 @@ clf.fit(X_train, y_train)
 confidence = clf.score(X_test, y_test)
 print ('Hybrid Method Accuracy for Close price: ', confidence*100)
 
+'''
+OUTUT OF:
+runfile('C:/Users/Augus/dev/Sentiment-analysis-using-Business-News/test4/twitter_model.py', wdir='C:/Users/Augus/dev/Sentiment-analysis-using-Business-News/test4')
 
+Open price correlation: 0.165015862006
+Close price correlation: 0.474968525149
+Traditional Method Accuracy for Open Price:  15.9087066922
+Sentimental Method Accuracy for Open Price:  61.0432876902
+Hybrid Method Accuracy for Open Price:  46.0335046938
+Traditional Method Accuracy for Close Price:  -45.2771011617
+Sentimental Method Accuracy for Close Price:  25.0638868011
+Hybrid Method Accuracy for Close price:  -88.3730883057
+'''
