@@ -1,6 +1,6 @@
 ##Workflow 
 - livemint_spider.py >> _data.csv,_data_body.csv 
-data[title,intro, href, datetime] 
+    data[title,intro, href, datetime] 
 - _data.csv,_data_body.csv + idgen.py >> data_o1.csv,data_o2.csv
 
 - data_o2.csv + preprocessor.py >> data_o3.csv 
