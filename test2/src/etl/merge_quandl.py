@@ -4,9 +4,12 @@
 
 import pandas as pd
 import sys
+import platform
 
-#company_id=sys.argv[1]
-company_id='TCS'
+if platform.system()=='Windows':
+    company_id='AX'
+else:
+    company_id=sys.argv[1]
 
 filenames=['../../'+company_id+'_sentiment.csv','../../NSE-'+company_id+'.csv']
 

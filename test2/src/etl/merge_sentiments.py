@@ -3,9 +3,13 @@
 
 import pandas as pd
 import sys
+import platform
 
-##company_id=sys.argv[1]
-company_id='TCS'
+if platform.system()=='Windows':
+    company_id='AX'
+else:
+    company_id=sys.argv[1]
+
 filenames=['../../'+company_id+'_score_open.csv','../../'+company_id+'_score_close.csv']
 
 #open.csv

@@ -7,10 +7,14 @@ import datetime
 import pandas as pd
 import collections
 import re
+import platform
+import sys
 
-#sys argv- company_id
-#company_id,filter=sys.argv[1],sys.argv[2]
-company_id,filter='AX','open'
+
+if platform.system()=='Windows':
+    company_id,filter='AX','open'
+else:
+    company_id,filter=sys.argv[1],sys.argv[2]
 
 filenames=['../../'+company_id+'.csv']
 
