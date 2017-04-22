@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 
 #filenames=[sys.argv[1],sys.argv[2]]
-filenames=['../../TCS_score_open.csv','../../TCS_score_close.csv']
+filenames=['../../REL_score_open.csv','../../REL_score_close.csv']
 
 #open.csv
 df1=pd.read_csv(filenames[0])

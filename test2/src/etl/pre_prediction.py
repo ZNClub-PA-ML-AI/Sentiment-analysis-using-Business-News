@@ -8,7 +8,7 @@ import pandas as pd
 import collections
 import re
 
-filenames=['../../TCS.csv']
+filenames=['../../REL.csv']
 
 df=pd.read_csv(filenames[0])
 date_list = df.date.tolist()
@@ -75,6 +75,7 @@ for i,r in df.iterrows():
          
     #print()
     
+    # before markets open
     if time<=time_open:
          #continue
          if len(next_date)>0:
@@ -83,10 +84,12 @@ for i,r in df.iterrows():
             od[date]+=len(next_date) 
             next_date=[]
          else:
-             score[date]+=sc
+             score[date]+=sc    
+    #after markets close
     elif time>time_close:
          #continue
          next_date.append(sc)
+    #during trading hours
     else:
          continue
          score[date]+=sc
@@ -98,6 +101,6 @@ for k,v in od.items():
 
 df=pd.DataFrame(score,index=['score'])
 df=df.transpose()
-df.to_csv('../../TCS_score_close.csv',sep=',',encoding='utf-8')
+df.to_csv('../../REL_score_open.csv',sep=',',encoding='utf-8')
 #df.to_json('TCS_score_open.json')
 
