@@ -38,10 +38,15 @@ company[id].extend(company[sector])
 print(company[id])
 '''
 sector,company,competitor=dict(),dict(),dict()
-company_id='TCS'
-company[company_id]='Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli'
-competitor[company_id]='Infosys,HCL,TechMahindra,Wipro,Accenture,Cognizant,HP,Genpact,IBM'
-sector[company_id]='information technology,IT industry'
+#company_id='TCS'
+#company[company_id]='Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli'
+#competitor[company_id]='Infosys,HCL,TechMahindra,Wipro,Accenture,Cognizant,HP,Genpact,IBM'
+#sector[company_id]='information technology,IT industry'
+
+company_id='REL'
+company[company_id]='Reliance Industries,Mukesh Ambani,Anil Ambani,Reliance Commercial Corporation,RELIANCE,RIL,Jio'
+competitor[company_id]='BPCL,GAIL,NTPC,ONGC,PG,TP,Airtel,Vodafone,Idea,BSNL'
+sector[company_id]='Telecom,Telecommunication,Department of Telecommunications,mopng,Ministry of Petroleum and Natural Gas,mop&ng,natural gas,petroleum,energy sector,powermin,Ministry of Energy sources,Ministry of New and Renewable'
 
 
 result = pd.DataFrame()

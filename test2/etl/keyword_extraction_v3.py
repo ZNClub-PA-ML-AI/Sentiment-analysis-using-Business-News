@@ -11,7 +11,7 @@ from collections import defaultdict
 import re
 
 # read file
-filenames=['../../labeled.csv','../../../data/explicit/company_keyword.xlsx']
+filenames=['../labeled.csv','../../data/explicit/company_keyword.xlsx']
 df = pd.read_csv(filenames[0])
 df1=pd.read_excel(filenames[1],sheetname='Sheet1')
 df2=pd.read_excel(filenames[1],sheetname='Sheet2')
@@ -37,12 +37,17 @@ company[id].extend(company[sector])
 
 print(company[id])
 '''
-sector,company,competitor=dict(),dict(),dict()
-company_id='TCS'
-company[company_id]='Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli'
-competitor[company_id]='Infosys,HCL,TechMahindra,Wipro,Accenture,Cognizant,HP,Genpact,IBM'
-sector[company_id]='information technology,IT industry'
 
+sector,company,competitor=dict(),dict(),dict()
+#company_id='TCS'
+#company[company_id]='Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli'
+#competitor[company_id]='Infosys,HCL,TechMahindra,Wipro,Accenture,Cognizant,HP,Genpact,IBM'
+#sector[company_id]='information technology,IT industry'
+
+company_id='REL'
+company[company_id]='Reliance Industries,Mukesh Ambani,Anil Ambani,Reliance Commercial Corporation,RELIANCE,RIL,Jio'
+competitor[company_id]='BPCL,GAIL,NTPC,ONGC,PG,TP,Airtel,Vodafone,Idea,BSNL'
+sector[company_id]='Telecom,Telecommunication,Department of Telecommunications,mopng,Ministry of Petroleum and Natural Gas,mop&ng,natural gas,petroleum,energy sector,powermin,Ministry of Energy sources,Ministry of New and Renewable'
 
 result = pd.DataFrame()
 
@@ -52,7 +57,7 @@ for i,r in df.iterrows():
     b=str(r.body).lower()
     
     
-    cmpy_list,cmpt_list,sect_list=company[id].split(','),competitor[id].split(','),sector[id].split(',')
+    cmpy_list,cmpt_list,sect_list=company[company_id].split(','),competitor[company_id].split(','),sector[company_id].split(',')
     cmpy_set,cmpt_set,sect_set=set(cmpy_list),set(cmpt_list),set(sect_list)
     tag=''
     score=0.0
@@ -95,6 +100,6 @@ for i,r in df.iterrows():
         
 result = result.set_index(['score'])
 print(result.describe())
-result.to_csv('../../'+id+'.csv',encoding='utf-8',sep=',')
+result.to_csv('../../'+company_id+'.csv',encoding='utf-8',sep=',')
 
 
