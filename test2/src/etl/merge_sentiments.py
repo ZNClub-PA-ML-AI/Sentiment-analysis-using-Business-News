@@ -4,8 +4,9 @@
 import pandas as pd
 import sys
 
-#filenames=[sys.argv[1],sys.argv[2]]
-filenames=['../../REL_score_open.csv','../../REL_score_close.csv']
+##company_id=sys.argv[1]
+company_id='TCS'
+filenames=['../../'+company_id+'_score_open.csv','../../'+company_id+'_score_close.csv']
 
 #open.csv
 df1=pd.read_csv(filenames[0])
@@ -21,13 +22,8 @@ df2.columns=['date','close_score']
 result=pd.concat([df1,df2],axis=1,join='inner')
 out=pd.DataFrame(result[[0,1,3]])
 print(out.head(23))
-#print(result.head(23),result.describe(),result.columns)
 
-#write to csv
-print(filenames[0][6:9])
-#out.to_csv('../../../data/processed/'+filenames[0][6:9]+'_sentiment.csv',encoding='utf-8',sep=',')
-
-out.to_csv('../../'+filenames[0][6:9]+'_sentiment.csv',encoding='utf-8',sep=',')
+out.to_csv('../../'+company_id+'_sentiment.csv',encoding='utf-8',sep=',')
 
 
 

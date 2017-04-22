@@ -5,8 +5,10 @@
 import pandas as pd
 import sys
 
-#filenames=[sys.argv[1],sys.argv[2]]
-filenames=['../../TCS_sentiment.csv','../../NSE-TCS.csv']
+#company_id=sys.argv[1]
+company_id='TCS'
+
+filenames=['../../'+company_id+'_sentiment.csv','../../NSE-'+company_id+'.csv']
 
 
 #sentiment csv
@@ -46,7 +48,7 @@ df3.columns=['#','open_score','close_score','Open','High','Low','Last','Close','
 print(df3.columns)
 
 df3=df3.sort_index()
-df3.to_csv('../../'+filename[:3]+'_qs.csv',encoding='utf-8',sep=',')
+df3.to_csv('../../'+company_id+'_qs.csv',encoding='utf-8',sep=',')
 print(df3.head())
 
 

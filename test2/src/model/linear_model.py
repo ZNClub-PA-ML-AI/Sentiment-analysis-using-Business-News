@@ -4,8 +4,15 @@ from sklearn import preprocessing, cross_validation
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 import copy
+import platform
+import sys
 
-df=pd.read_csv('../../TCS_qs.csv')
+if platform.system()=='Windows':
+    company_id='AX'
+else:
+    company_id=sys.argv[1]
+
+df=pd.read_csv('../../'+company_id+'_qs.csv')
 df = df[['Open',  'High',  'Low',  'Close', 'open_score', 'close_score']]
 forecast_col = ['Open',  'High',  'Low',  'Close']
 df.fillna(value=-99999, inplace=True)

@@ -1,20 +1,27 @@
-
-
 """
 Created on Wed Mar 22 11:41:40 2017
 
 @author: ZNevzz
 """
+
 import sys
+import platform
 import pandas as pd
 from collections import defaultdict
 import re
 
+if platform.system()=='Windows':
+    company_id='AX'
+else:
+    company_id=sys.argv[1]
+
 # read file
 filenames=['../../labeled.csv','../../../data/explicit/company_keyword.xlsx']
-df = pd.read_csv(filenames[0])
+
+df =pd.read_csv(filenames[0])
 df1=pd.read_excel(filenames[1],sheetname='Sheet1')
 df2=pd.read_excel(filenames[1],sheetname='Sheet2')
+
 
 '''
 #company keyword dict
@@ -38,15 +45,27 @@ company[id].extend(company[sector])
 print(company[id])
 '''
 sector,company,competitor=dict(),dict(),dict()
-#company_id='TCS'
-#company[company_id]='Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli'
-#competitor[company_id]='Infosys,HCL,TechMahindra,Wipro,Accenture,Cognizant,HP,Genpact,IBM'
-#sector[company_id]='information technology,IT industry'
 
-company_id='REL'
-company[company_id]='Reliance Industries,Mukesh Ambani,Anil Ambani,Reliance Commercial Corporation,RELIANCE,RIL,Jio'
-competitor[company_id]='BPCL,GAIL,NTPC,ONGC,PG,TP,Airtel,Vodafone,Idea,BSNL'
-sector[company_id]='Telecom,Telecommunication,Department of Telecommunications,mopng,Ministry of Petroleum and Natural Gas,mop&ng,natural gas,petroleum,energy sector,powermin,Ministry of Energy sources,Ministry of New and Renewable'
+#hardcode database for demo
+
+
+if company_id=='REL':
+    company[company_id]='Reliance Industries,Mukesh Ambani,Anil Ambani,Reliance Commercial Corporation,RELIANCE,RIL,Jio'
+    competitor[company_id]='BPCL,GAIL,NTPC,ONGC,PG,TP,Airtel,Vodafone,Idea,BSNL'
+    sector[company_id]='Telecom,Telecommunication,Department of Telecommunications,mopng,Ministry of Petroleum and Natural Gas,mop&ng,natural gas,petroleum,energy sector,powermin,Ministry of Energy sources,Ministry of New and Renewable'    
+
+elif company_id=='TCS':
+    company[company_id]='Tata Consultancy Services,TCS,Natarajan Chandrasekaran,Ratan Tata,Tata Group,JRD Tata,J.R.D. Tata,F.C. Kohli,FC Kohli'
+    competitor[company_id]='Infosys,HCL,TechMahindra,Wipro,Accenture,Cognizant,HP,Genpact,IBM'
+    sector[company_id]='information technology,IT industry'
+elif company_id=='AX':
+    company[company_id]='AXIS bank,AXISBANK,Shikha Sharma,Sanjiv Misra'
+    competitor[company_id]='BOB,HDFC,HDFCB,ICICI,ININ,KMB,SBI,YB'
+    sector[company_id]='banking,finance,financial services,Reserve Bank of India,RBI,R.B.I.,banking system,banking structure,finmin,Ministry of Finance, Department of Financial Services'
+    
+
+
+
 
 
 result = pd.DataFrame()

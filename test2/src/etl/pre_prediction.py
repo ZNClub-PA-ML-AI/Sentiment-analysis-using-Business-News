@@ -8,7 +8,11 @@ import pandas as pd
 import collections
 import re
 
-filenames=['../../REL.csv']
+#sys argv- company_id
+#company_id,filter=sys.argv[1],sys.argv[2]
+company_id,filter='AX','open'
+
+filenames=['../../'+company_id+'.csv']
 
 df=pd.read_csv(filenames[0])
 date_list = df.date.tolist()
@@ -64,20 +68,9 @@ for i,r in df.iterrows():
     time_close=datetime.datetime.strptime('16:00','%H:%M')
     sc=float(r.score)
     
-    # check if sentiment of competitor
-    ''' 
-    if is_competitor(str(r.title),str(r.intro),str(r.body),'TCS'):
-         sc-=float(r.score)
-     
-    else:
-         sc+=float(r.score)
-    '''
-         
-    #print()
-    
     # before markets open
-    if time<=time_open:
-         #continue
+    if time<=time_open and filter=='open':
+         
          if len(next_date)>0:
             score[date]+=sum(next_date)
             score[date]+=sc
@@ -86,12 +79,12 @@ for i,r in df.iterrows():
          else:
              score[date]+=sc    
     #after markets close
-    elif time>time_close:
-         #continue
+    elif time>time_close and filter=='open':
+         
          next_date.append(sc)
     #during trading hours
-    else:
-         continue
+    elif filter=='close':
+         
          score[date]+=sc
 for k,v in od.items():
     score[k]=score[k]/v
@@ -101,6 +94,6 @@ for k,v in od.items():
 
 df=pd.DataFrame(score,index=['score'])
 df=df.transpose()
-df.to_csv('../../REL_score_open.csv',sep=',',encoding='utf-8')
+df.to_csv('../../'+company_id+'_score_'+filter+'.csv',sep=',',encoding='utf-8')
 #df.to_json('TCS_score_open.json')
 
