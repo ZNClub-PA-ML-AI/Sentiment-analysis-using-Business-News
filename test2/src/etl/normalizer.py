@@ -8,8 +8,9 @@ import pandas as pd
 from datetime import datetime as dt
 
 # read file
+sys_path='../../../data/processed/'
 
-filenames = ['data_joined_2.csv']
+filenames = [sys_path+'data_merged.csv']
 df = pd.read_csv(filenames[0])
 #print(df.head(2))
 #print(df.columns)
@@ -53,7 +54,7 @@ for i,r in df.iterrows():
 
 result=result.set_index(['date'])
 print(result.head(2))
-result.to_csv('normalized.csv',sep=',',encoding='utf-8')
+result.to_csv(sys_path+'normalized.csv',sep=',',encoding='utf-8')
 
 
 
