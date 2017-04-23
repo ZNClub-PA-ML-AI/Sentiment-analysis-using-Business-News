@@ -1,10 +1,13 @@
-##Workflow 
+
+#WORKFLOW OF PROJECT
+
 - livemint_spider.py >> _data.csv,_data_body.csv 
     data[title,intro, href, datetime] 
     data_body[href,body] 
 - _data.csv,_data_body.csv + idgen.py >> data_o1.csv,data_o2.csv
     idgen.py : generates ID from href and assigns to each record 
-    data_o1.csv [id,... 
+    data_o1.csv [id,...]
+    data_o2.csv [id,...]
 - data_o2.csv + preprocessor.py >> data_o3.csv 
 
 - data_o1.csv, data_o3.csv + merge.py >> data_joined_2.csv 
