@@ -12,9 +12,9 @@ import sys
 
 
 if platform.system()=='Windows':
-    company_id,filter='TCS','close'
+    company_id,mode='TCS','close'
 else:
-    company_id,filter=sys.argv[1],sys.argv[2]
+    company_id,mode=sys.argv[1],sys.argv[2]
 
 filenames=['../../'+company_id+'.csv']
 
@@ -73,7 +73,7 @@ for i,r in df.iterrows():
     sc=float(r.score)
     
     # before markets open
-    if time<=time_open and filter=='open':
+    if time<=time_open and mode=='open':
          
          if len(next_date)>0:
             score[date]+=sum(next_date)
@@ -83,11 +83,11 @@ for i,r in df.iterrows():
          else:
              score[date]+=sc    
     #after markets close
-    elif time>time_close and filter=='open':
+    elif time>time_close and mode=='open':
          
          next_date.append(sc)
     #during trading hours
-    elif filter=='close':
+    elif mode=='close':
          
          score[date]+=sc
 for k,v in od.items():
@@ -98,6 +98,6 @@ for k,v in od.items():
 
 df=pd.DataFrame(score,index=['score'])
 df=df.transpose()
-df.to_csv('../../'+company_id+'_score_'+filter+'.csv',sep=',',encoding='utf-8')
+df.to_csv('../../'+company_id+'_score_'+mode+'.csv',sep=',',encoding='utf-8')
 #df.to_json('TCS_score_open.json')
 
