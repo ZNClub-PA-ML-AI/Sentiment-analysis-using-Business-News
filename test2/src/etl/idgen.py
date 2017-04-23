@@ -7,8 +7,8 @@ Created on Sun Apr 23 16:43:13 2017
 import pandas as pd
 
 def generate_id(df,df_type):
-    
-    result=pd.DataFrame()
+    #result=None
+    result=pd.DataFrame()    
     if df_type=='body':
         for index,row in df.iterrows():
             splitter=row.href.split("/")
@@ -26,13 +26,15 @@ def generate_id(df,df_type):
     return result
 
 def process(filenames,p,mode):
-    p=str(p)
-    
+    p=str(p)    
+    output=[]
+
     for i in filenames:
         df=pd.read_csv(sys_path+path_in+i,encoding='iso-8859-1')
         print(df.columns)
         output.append(generate_id(df,mode))
     
+    #out=None
     out=pd.DataFrame()
 
     for i in output:
@@ -40,11 +42,12 @@ def process(filenames,p,mode):
     print(out.describe())
     
     out.to_csv(sys_path+path_out+'data_o'+p+'.csv', sep=',', encoding='utf-8')
+    
 
     
 sys_path='../../../data/'
 path_in='scrapy/'
-path_out='scrapy/'
+path_out='processed/'
 
 
 filenames_d = ['livemint_data.csv','livemint_data_2.csv','livemint_data_3.csv']
