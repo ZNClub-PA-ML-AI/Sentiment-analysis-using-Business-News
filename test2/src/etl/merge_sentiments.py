@@ -6,7 +6,7 @@ import sys
 import platform
 
 if platform.system()=='Windows':
-    company_id='AX'
+    company_id='TCS'
 else:
     company_id=sys.argv[1]
 
