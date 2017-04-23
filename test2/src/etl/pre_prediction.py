@@ -12,7 +12,7 @@ import sys
 
 
 if platform.system()=='Windows':
-    company_id,filter='AX','open'
+    company_id,filter='TCS','close'
 else:
     company_id,filter=sys.argv[1],sys.argv[2]
 

@@ -6,13 +6,13 @@ Created on Mon Mar 20 11:41:40 2017
 
 import pandas as pd
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from nltk import tokenize
 import time
 start=time.time()
 
 
 # read file
-filenames=['../../normalized.csv']
+sys_path='../../../data/processed/'
+filenames=[sys_path+'normalized.csv']
 df = pd.read_csv(filenames[0])
 
 def sentiment_cal(title,intro,body):
@@ -40,7 +40,7 @@ for i,r in df.iterrows():
 	result = pd.concat([result,temp])
 #print(result.head(2))
 
-result.to_csv('../../labeled_round.csv',encoding='utf-8',sep=',')
+result.to_csv(sys_path+'labeled.csv',encoding='utf-8',sep=',')
 print(time.time()-start)
 
 
