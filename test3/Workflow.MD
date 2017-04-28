@@ -1,5 +1,5 @@
 
-#WORKFLOW OF PROJECT
+# WORKFLOW OF PROJECT
 
 - livemint_spider.py >> _data.csv,_data_body.csv 
     data[title,intro, href, datetime] 
