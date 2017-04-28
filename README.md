@@ -61,4 +61,16 @@ date|comp|title|intro|body|feat_1|...|feat_n|opnd| % delta |trend
 
  **The current release version 1.0 has the following features integrated :**
 
-- ddatabase in
+ - check the technology stack & environment details required to run project 
+
+ - the working directory is named **maun** which contains all data files & modules
+
+ - **/src** contains two dir : **etl** contains important preprocessing modules; **model** contains evaluation & machine learning models 
+
+- the **report/index.html** is the front end for the project. If charts don't display, it is because the AJAX call is been sent to the json during deployment stage. Therefore replace the GET url with file URL from github.com, go to rawgit.com & generate a CDN URL. 
+
+- labeled.csv is generated from another sibling project ie [Scrapy-Spiders](https://github.com/ZNClub-PA-ML-AI/Scrapy-Spiders)
+
+
+ 
+
