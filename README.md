@@ -1,5 +1,16 @@
+
 # Sentiment-analysis-using-Business-News
 
+
+----------
+This project is dedicated to generating sentiment value from business news about companies & comparing it with the stock market steps
+**This project is a part of another parent project ie **
+[Research-Platform-Stock-Market](https://github.com/ZNClub-PA-ML-AI)
+
+# Let's begin
+
+
+# Research & survey based information regarding NLP
 ## PREPROCESSING
 1. keyword filtering
 2. html markup filtering
@@ -7,11 +18,11 @@
 
 ## SENTIMENT EVALUATION
 http://text-processing.com/demo/sentiment/
-## NGRAMS
-http://stackoverflow.com/questions/32441605/generating-ngrams-unigrams-bigrams-etc-from-a-large-corpus-of-txt-files-and-t
+VADER
+
 ## GUIDE
 https://www.quora.com/What-are-the-best-supervised-learning-algorithms-for-sentiment-analysis-in-text
-## PREPROCESSING INVOLVED IN NLP
+## PREPROCESSING STEPS INVOLVED IN NLP
 1. Noise Removal
 2. Named Entity Recognition
 3. Noun Clauses
@@ -36,7 +47,7 @@ date|comp|title|intro|body|feat_1|...|feat_n|opnd| % delta |trend
 - % delta : % change between OPEN_today & OPEN_next_day
 - trend : duration of positive / negative trend
 
-## HYBRID MODEL
+## HYBRID MODEL ( Part of Parent Project) 
 1. IMPLEMENT
   1. MARKET ANALYTICS PREDICTION ( economic approach )
   2. NEWS SENTIMENTAL PREDICTION ( nlp approach for what investors read )
@@ -44,3 +55,9 @@ date|comp|title|intro|body|feat_1|...|feat_n|opnd| % delta |trend
 2. COMPARE PERFORMANCE ON TECHNIQUES BASED ON ACCURACY & TREND
 3. APPLY WEIGHTED APPROACH & COMBINE ALL TECHNIQUES
 
+# Git status 
+
+
+ **The current release version 1.0 has the following features integrated :**
+
+- ddatabase in
