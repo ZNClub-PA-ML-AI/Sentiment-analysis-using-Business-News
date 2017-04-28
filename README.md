@@ -4,7 +4,8 @@
 
 This project is dedicated to generating sentiment value from business news about companies & comparing it with the stock market steps
 
-**This project is a part of another parent project ie **
+**This project is a part of another parent project ie**
+
 [Research-Platform-Stock-Market](https://github.com/ZNClub-PA-ML-AI)
 
 # Let's begin
